@@ -2,6 +2,7 @@ package it.matteocolombo.tacca.ui.editor
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,6 +38,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -81,11 +84,19 @@ data class EditorActions(
 }
 
 @Composable
-fun CalibrationEditorEntry(onClose: () -> Unit, onNewGrinder: () -> Unit, onSaved: (Long, Boolean) -> Unit, onDeleted: () -> Unit) {
+fun CalibrationEditorEntry(
+    onClose: () -> Unit,
+    onNewGrinder: () -> Unit,
+    onSaved: (Long, Boolean) -> Unit,
+    onDeleted: () -> Unit,
+    newGrinderId: Long? = null,
+    onNewGrinderConsumed: () -> Unit = {},
+) {
     val vm: CalibrationEditorViewModel = viewModel(factory = CalibrationEditorViewModel.Factory)
     val state by vm.uiState.collectAsStateWithLifecycle()
     LaunchedEffect(state.savedId) { state.savedId?.let { onSaved(it, state.isEdit) } }
     LaunchedEffect(state.deleted) { if (state.deleted) onDeleted() }
+    LaunchedEffect(newGrinderId) { newGrinderId?.let { vm.onNewGrinderCreated(it); onNewGrinderConsumed() } }
     CalibrationEditorScreen(
         state,
         EditorActions(
@@ -183,7 +194,7 @@ fun CalibrationEditorScreen(state: EditorUiState, actions: EditorActions) {
                                     .padding(horizontal = 12.dp, vertical = 8.dp),
                                 verticalArrangement = Arrangement.spacedBy(2.dp, Alignment.CenterVertically),
                             ) {
-                                Text(g.name, style = TaccaType.label.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Bold), color = c.text)
+                                Text(g.name, style = TaccaType.label.copy(fontWeight = FontWeight.Bold), color = c.text)
                                 Text(grinderKindText(g.spec), style = TaccaType.bodySmall.copy(fontSize = 12.sp), color = c.textMuted)
                             }
                         }
@@ -246,7 +257,7 @@ fun CalibrationEditorScreen(state: EditorUiState, actions: EditorActions) {
                 placeholder = stringResource(R.string.editor_notes_hint),
                 singleLine = false,
                 minLines = 2,
-                imeAction = androidx.compose.ui.text.input.ImeAction.Default,
+                imeAction = ImeAction.Default,
             )
 
             if (state.isEdit) DangerTextButton(stringResource(R.string.editor_delete), { confirmDelete = true })
@@ -304,7 +315,7 @@ private fun AddChip(label: String, onClick: () -> Unit) {
     val c = TaccaTheme.colors
     Row(
         Modifier.heightIn(min = 48.dp).clip(CircleShape).background(c.surface).border(1.dp, c.outline, CircleShape)
-            .selectable(selected = false, role = Role.Button, onClick = onClick)
+            .clickable(role = Role.Button, onClick = onClick)
             .padding(horizontal = 14.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp),
@@ -325,7 +336,7 @@ private fun AdjustCard(title: String, hint: String, highlighted: Boolean, modifi
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.Bottom) {
-            Text(title, style = TaccaType.label.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Bold), color = c.text)
+            Text(title, style = TaccaType.label.copy(fontWeight = FontWeight.Bold), color = c.text)
             Text(hint, style = TaccaType.unit.copy(fontSize = 11.sp, letterSpacing = 0.sp), color = c.textMuted)
         }
         content()

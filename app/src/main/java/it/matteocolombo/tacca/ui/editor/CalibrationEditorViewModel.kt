@@ -20,14 +20,12 @@ import it.matteocolombo.tacca.domain.Grinder
 import it.matteocolombo.tacca.domain.Method
 import it.matteocolombo.tacca.domain.SettingRules
 import it.matteocolombo.tacca.domain.TextMatch
-import it.matteocolombo.tacca.ui.navigation.NEW_GRINDER_RESULT_KEY
 import it.matteocolombo.tacca.ui.navigation.idArg
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -54,7 +52,8 @@ data class EditorUiState(
 ) {
     val grinder: Grinder? get() = grinders.firstOrNull { it.id == grinderId }
     val canSave: Boolean
-        get() = loaded && !saving && coffees.any { it.id == coffeeId } && methods.any { it.id == methodId } && grinder != null
+        get() = loaded && !saving && savedId == null &&
+            coffees.any { it.id == coffeeId } && methods.any { it.id == methodId } && grinder != null
     val visibleCoffees: List<Coffee>
         get() {
             if (showAllCoffees || coffees.size <= RECENT_COFFEES) return coffees
@@ -94,23 +93,18 @@ class CalibrationEditorViewModel(
                 Lists(cs, ms, gs, cals)
             }.collect { lists ->
                 val firstLoad = !state.value.loaded
-                state.update { s -> merge(s, lists, if (firstLoad) existing else null, firstLoad) }
-                if (firstLoad) refreshReplaces()
-            }
-        }
-        viewModelScope.launch {
-            savedStateHandle.getStateFlow<Long?>(NEW_GRINDER_RESULT_KEY, null).filterNotNull().collect { id ->
-                savedStateHandle[NEW_GRINDER_RESULT_KEY] = null
-                pendingGrinderId = id
-                state.update { s -> if (s.grinders.any { it.id == id }) selectGrinderIn(s, id).also { pendingGrinderId = null } else s }
-                refreshReplaces()
+                val pending = pendingGrinderId
+                val applyPending = pending != null && lists.grinders.any { it.id == pending }
+                if (applyPending) pendingGrinderId = null
+                state.update { s -> merge(s, lists, if (firstLoad) existing else null, firstLoad, if (applyPending) pending else null) }
+                if (firstLoad || applyPending) refreshReplaces()
             }
         }
     }
 
     private data class Lists(val coffees: List<Coffee>, val methods: List<Method>, val grinders: List<Grinder>, val calibrations: List<Calibration>)
 
-    private fun merge(s: EditorUiState, l: Lists, existing: Calibration?, firstLoad: Boolean): EditorUiState {
+    private fun merge(s: EditorUiState, l: Lists, existing: Calibration?, firstLoad: Boolean, applyGrinderId: Long?): EditorUiState {
         val lastUse = l.calibrations.groupBy { it.coffee.id }.mapValues { (_, v) -> v.maxOf { it.updatedAt } }
         val ordered = l.coffees.sortedByDescending { maxOf(lastUse[it.id] ?: 0L, it.createdAt) }
         var next = s.copy(
@@ -134,11 +128,7 @@ class CalibrationEditorViewModel(
                 )
             }
         }
-        val pending = pendingGrinderId
-        if (pending != null && l.grinders.any { it.id == pending }) {
-            pendingGrinderId = null
-            next = selectGrinderIn(next, pending)
-        }
+        if (applyGrinderId != null) next = selectGrinderIn(next, applyGrinderId)
         return next
     }
 
@@ -159,7 +149,13 @@ class CalibrationEditorViewModel(
         }
         replacesJob = viewModelScope.launch {
             val existing = calibrations.findExisting(c, m, g)
-            state.update { it.copy(replaces = existing?.takeIf { e -> e.id != editingId }?.setting) }
+            state.update { s2 ->
+                if (s2.coffeeId == c && s2.methodId == m && s2.grinderId == g) {
+                    s2.copy(replaces = existing?.takeIf { e -> e.id != editingId }?.setting)
+                } else {
+                    s2
+                }
+            }
         }
     }
 
@@ -175,6 +171,21 @@ class CalibrationEditorViewModel(
 
     fun selectGrinder(id: Long) {
         state.update { selectGrinderIn(it, id) }
+        refreshReplaces()
+    }
+
+    /**
+     * Called after a new grinder was created from the grinder editor. Selects it if it has
+     * already reached the observed grinder list; otherwise remembers it and applies the
+     * selection once a later list emission includes it (see [merge]).
+     */
+    fun onNewGrinderCreated(id: Long) {
+        val inList = state.value.grinders.any { it.id == id }
+        if (inList) {
+            state.update { selectGrinderIn(it, id) }
+        } else {
+            pendingGrinderId = id
+        }
         refreshReplaces()
     }
 
@@ -209,8 +220,12 @@ class CalibrationEditorViewModel(
         if (!s.canSave) return
         state.update { it.copy(saving = true) }
         viewModelScope.launch {
-            val id = calibrations.save(SaveCalibration(editingId, s.coffeeId!!, s.methodId!!, s.grinderId!!, s.setting, s.notes))
-            state.update { it.copy(saving = false, savedId = id) }
+            try {
+                val id = calibrations.save(SaveCalibration(editingId, s.coffeeId!!, s.methodId!!, s.grinderId!!, s.setting, s.notes))
+                state.update { it.copy(savedId = id) }
+            } finally {
+                state.update { it.copy(saving = false) }
+            }
         }
     }
 

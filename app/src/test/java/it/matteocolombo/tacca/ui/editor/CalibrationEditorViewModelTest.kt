@@ -8,7 +8,6 @@ import it.matteocolombo.tacca.domain.GrindSetting
 import it.matteocolombo.tacca.domain.GrinderSpec
 import it.matteocolombo.tacca.testutil.MainDispatcherRule
 import it.matteocolombo.tacca.testutil.TestRepos
-import it.matteocolombo.tacca.ui.navigation.NEW_GRINDER_RESULT_KEY
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
@@ -116,12 +115,35 @@ class CalibrationEditorViewModelTest {
 
     @Test fun newGrinderResultIsSelected() = runTest {
         r.grinders.add("JX", GrinderSpec(true, 40))
-        val handle = SavedStateHandle()
-        val vm = vm(handle = handle)
+        val vm = vm()
         vm.uiState.first { it.loaded }
         val created = r.grinders.add("Comandante", GrinderSpec(true, 30))
-        handle[NEW_GRINDER_RESULT_KEY] = created
+        vm.onNewGrinderCreated(created)
         assertEquals(created, vm.uiState.first { it.grinderId == created }.grinderId)
+    }
+
+    @Test fun pendingGrinderClearsStaleReplaceWarningOnceApplied() = runTest {
+        val c = r.coffees.add("Brasile")
+        val oldGrinder = r.grinders.add("Old", GrinderSpec(true, 40))
+        val moka = r.builtInMethod(BuiltInMethod.MOKA).id
+        r.calibrations.save(SaveCalibration(null, c, moka, oldGrinder, GrindSetting(1, 30), ""))
+        val vm = vm()
+        vm.uiState.first { it.loaded }
+        vm.selectCoffee(c)
+        vm.selectMethod(moka)
+        vm.selectGrinder(oldGrinder)
+        vm.uiState.first { it.replaces != null }
+
+        // Not yet inserted, so it cannot be in the observed grinder list: this must be stored as pending.
+        val predictedNewId = oldGrinder + 1
+        vm.onNewGrinderCreated(predictedNewId)
+        assertEquals(oldGrinder, vm.uiState.value.grinderId)
+
+        val created = r.grinders.add("New", GrinderSpec(true, 40))
+        assertEquals(predictedNewId, created)
+        val s = vm.uiState.first { it.grinderId == created && it.replaces == null }
+        assertEquals(created, s.grinderId)
+        assertNull(s.replaces)
     }
 
     @Test fun recentCoffeesComeFirstAndListIsCollapsed() = runTest {
