@@ -14,6 +14,9 @@ import it.matteocolombo.tacca.data.repo.RoomCalibrationRepository
 import it.matteocolombo.tacca.data.repo.RoomCoffeeRepository
 import it.matteocolombo.tacca.data.repo.RoomGrinderRepository
 import it.matteocolombo.tacca.data.repo.RoomMethodRepository
+import it.matteocolombo.tacca.data.settings.DataStoreSettingsRepository
+import it.matteocolombo.tacca.data.settings.SettingsRepository
+import it.matteocolombo.tacca.data.settings.settingsDataStore
 
 /** Manual dependency container, one per process. */
 class AppContainer(context: Context) {
@@ -27,4 +30,5 @@ class AppContainer(context: Context) {
     val homeFilter = HomeFilterStore()
     val backup: BackupService by lazy { BackupService(database) }
     val documents: DocumentStreams by lazy { ContentResolverDocumentStreams(appContext.contentResolver) }
+    val settings: SettingsRepository by lazy { DataStoreSettingsRepository(appContext.settingsDataStore) }
 }
