@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_sections">Secciones</string>
+    <string name="nav_calibrations">Calibraciones</string>
+    <string name="nav_coffees">Cafés</string>
+    <string name="nav_methods">Métodos</string>
+    <string name="nav_grinders">Molinillos</string>
+
+    <string name="action_save">Guardar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_close">Cerrar</string>
+    <string name="action_back">Atrás</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_clear_search">Borrar búsqueda</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="action_more">Más opciones</string>
+    <string name="action_new">Nuevo</string>
+    <string name="action_show_all">Mostrar todos (%1$d)</string>
+
+    <plurals name="turns_count">
+        <item quantity="one">%d vuelta</item>
+        <item quantity="many">%d vueltas</item>
+        <item quantity="other">%d vueltas</item>
+    </plurals>
+    <plurals name="steps_count">
+        <item quantity="one">%d clic</item>
+        <item quantity="many">%d clics</item>
+        <item quantity="other">%d clics</item>
+    </plurals>
+    <string name="setting_turns_and_steps">%1$s + %2$s</string>
+    <string name="unit_turns">Vueltas</string>
+    <string name="unit_steps">Clics</string>
+    <plurals name="calibrations_count">
+        <item quantity="one">%d calibración</item>
+        <item quantity="many">%d calibraciones</item>
+        <item quantity="other">%d calibraciones</item>
+    </plurals>
+    <string name="calibrations_none">Aún no hay calibraciones</string>
+    <plurals name="coffees_count">
+        <item quantity="one">%d café</item>
+        <item quantity="many">%d cafés</item>
+        <item quantity="other">%d cafés</item>
+    </plurals>
+
+    <string name="method_moka">Moka</string>
+    <string name="method_espresso">Espresso</string>
+    <string name="method_v60">V60</string>
+    <string name="method_french_press">Prensa francesa</string>
+    <string name="method_aeropress">AeroPress</string>
+    <string name="icon_drop">Gota</string>
+    <string name="icon_cup">Taza</string>
+
+    <string name="tint_peach">Melocotón</string>
+    <string name="tint_sand">Arena</string>
+    <string name="tint_sky">Cielo</string>
+    <string name="tint_sage">Salvia</string>
+    <string name="tint_lilac">Lila</string>
+
+    <string name="home_title">Calibraciones</string>
+    <string name="home_filter_all">Todos</string>
+    <string name="home_search_hint">Buscar café, método, molinillo</string>
+    <string name="home_new_calibration">Nueva calibración</string>
+    <string name="home_remove_coffee_filter">Quitar filtro de café</string>
+    <string name="home_empty_title">Aún no hay calibraciones</string>
+    <string name="home_empty_body">Guarda el ajuste que funciona para un café, un método y un molinillo.</string>
+    <string name="home_empty_setup">Añadirás tu primer café y molinillo sobre la marcha.</string>
+    <string name="home_no_results">Ninguna calibración coincide</string>
+    <string name="home_clear_filters">Borrar filtros</string>
+
+    <string name="detail_step_zero">Cerca de cero</string>
+    <plurals name="detail_step_turns">
+        <item quantity="one">Gira %d vuelta completa</item>
+        <item quantity="many">Gira %d vueltas completas</item>
+        <item quantity="other">Gira %d vueltas completas</item>
+    </plurals>
+    <plurals name="detail_step_steps">
+        <item quantity="one">Añade %d clic</item>
+        <item quantity="many">Añade %d clics</item>
+        <item quantity="other">Añade %d clics</item>
+    </plurals>
+    <plurals name="detail_turns_plus">
+        <item quantity="one">%d vuelta +</item>
+        <item quantity="many">%d vueltas +</item>
+        <item quantity="other">%d vueltas +</item>
+    </plurals>
+    <string name="detail_notes">Notas</string>
+    <string name="detail_same_coffee">Mismo café</string>
+    <string name="detail_not_found">Esta calibración ya no existe.</string>
+    <string name="detail_dial_description">Dial: %1$s</string>
+
+    <string name="editor_title_new">Nueva calibración</string>
+    <string name="editor_title_edit">Editar calibración</string>
+    <string name="editor_section_coffee">Café</string>
+    <string name="editor_section_method">Método</string>
+    <string name="editor_section_grinder">Molinillo</string>
+    <string name="editor_section_adjustment">Ajuste</string>
+    <string name="editor_section_notes">Notas</string>
+    <string name="editor_notes_hint">Dosis, tiempo, rendimiento…</string>
+    <string name="editor_turns">Vueltas</string>
+    <string name="editor_optional">opcional</string>
+    <string name="editor_single_turn_info">Este molinillo se ajusta en una sola vuelta: los clics son suficientes.</string>
+    <string name="editor_steps">Clics</string>
+    <string name="editor_steps_range">%1$d–%2$d</string>
+    <string name="editor_steps_range_after_turns">%1$d–%2$d después de las vueltas</string>
+    <string name="editor_steps_unbounded">sin límite</string>
+    <string name="editor_fewer_turns">Menos vueltas</string>
+    <string name="editor_more_turns">Más vueltas</string>
+    <string name="editor_fewer_steps">Menos clics</string>
+    <string name="editor_more_steps">Más clics</string>
+    <string name="editor_save_summary">Guardar · %1$s</string>
+    <string name="editor_replaces">Sustituye el ajuste actual (%1$s)</string>
+    <string name="editor_delete">Eliminar calibración</string>
+    <string name="editor_delete_confirm">¿Eliminar esta calibración?</string>
+    <string name="editor_no_coffee">Añade un café para continuar</string>
+    <string name="editor_no_grinder">Añade un molinillo para continuar</string>
+
+    <string name="grinder_kind_multi">Varias vueltas · %1$d/vuelta</string>
+    <string name="grinder_kind_multi_unknown">Varias vueltas · clics desconocidos</string>
+    <string name="grinder_kind_single">Una vuelta · %1$s</string>
+    <string name="grinder_kind_single_unknown">Una vuelta · clics desconocidos</string>
+
+    <string name="coffees_title">Cafés</string>
+    <string name="coffees_add">Añadir café</string>
+    <string name="coffees_search_label">Buscar un café</string>
+    <string name="coffees_search_hint">Buscar por nombre…</string>
+    <string name="coffees_empty">Aún no hay cafés. Añade el primero.</string>
+    <string name="coffees_no_results">Ningún café coincide</string>
+    <string name="coffee_subtitle">%1$s · %2$s</string>
+    <string name="coffee_sheet_title_new">Nuevo café</string>
+    <string name="coffee_sheet_title_edit">Editar café</string>
+    <string name="coffee_name_label">Nombre</string>
+    <string name="coffee_name_hint">P. ej. Etiopía Yirgacheffe — lavado</string>
+    <string name="coffee_duplicate_hint">Ya existe un café con este nombre</string>
+    <string name="coffee_delete">Eliminar café</string>
+
+    <string name="methods_title">Métodos</string>
+    <string name="methods_subtitle">Cómo preparas tu café</string>
+    <string name="methods_add">Añadir método</string>
+    <string name="method_sheet_title_new">Nuevo método</string>
+    <string name="method_sheet_title_edit">Editar método</string>
+    <string name="method_name_label">Nombre</string>
+    <string name="method_name_hint">P. ej. Chemex</string>
+    <string name="method_icon_label">Icono</string>
+    <string name="method_tint_label">Color</string>
+    <string name="method_duplicate_hint">Ya existe un método con este nombre</string>
+    <string name="method_delete">Eliminar método</string>
+
+    <string name="grinders_title">Molinillos</string>
+    <string name="grinders_subtitle">Tus molinillos de café</string>
+    <string name="grinders_add">Añadir molinillo</string>
+    <string name="grinder_chip_multi">Varias vueltas</string>
+    <string name="grinder_chip_single">Una vuelta</string>
+    <plurals name="grinder_chip_per_turn">
+        <item quantity="one">%d clic por vuelta</item>
+        <item quantity="many">%d clics por vuelta</item>
+        <item quantity="other">%d clics por vuelta</item>
+    </plurals>
+    <string name="grinder_chip_unknown">Clics desconocidos</string>
+    <string name="grinder_editor_title_new">Nuevo molinillo</string>
+    <string name="grinder_editor_title_edit">Editar molinillo</string>
+    <string name="grinder_name_label">Nombre</string>
+    <string name="grinder_name_hint">P. ej. el molinillo de la abuela</string>
+    <string name="grinder_duplicate_hint">Ya existe un molinillo con este nombre</string>
+    <string name="grinder_multi_title">Se ajusta en varias vueltas</string>
+    <string name="grinder_multi_body">Actívalo si el dial da más de una vuelta completa de fino a grueso.</string>
+    <string name="grinder_steps_per_turn">Clics por vuelta</string>
+    <string name="grinder_steps_total">Clics totales</string>
+    <string name="grinder_steps_optional">Opcional · ayuda a comprobar los valores</string>
+    <string name="grinder_steps_not_set">Sin definir</string>
+    <string name="grinder_steps_unknown_action">No lo sé</string>
+    <string name="grinder_preview_label">Las calibraciones se leerán así</string>
+    <plurals name="grinder_out_of_range">
+        <item quantity="one">%d calibración queda fuera del nuevo rango</item>
+        <item quantity="many">%d calibraciones quedan fuera del nuevo rango</item>
+        <item quantity="other">%d calibraciones quedan fuera del nuevo rango</item>
+    </plurals>
+    <string name="grinder_delete">Eliminar molinillo</string>
+
+    <string name="confirm_delete_title">¿Eliminar “%1$s”?</string>
+    <plurals name="confirm_delete_cascade_body">
+        <item quantity="one">También se eliminará %d calibración.</item>
+        <item quantity="many">También se eliminarán %d calibraciones.</item>
+        <item quantity="other">También se eliminarán %d calibraciones.</item>
+    </plurals>
+    <string name="confirm_delete_no_cascade">No se eliminará nada más.</string>
+
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_accent">Color principal</string>
+    <string name="accent_terracotta">Terracota</string>
+    <string name="accent_pine">Pino</string>
+    <string name="accent_indigo">Índigo</string>
+    <string name="accent_plum">Ciruela</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Oscuro</string>
+    <string name="settings_language">Idioma</string>
+    <string name="language_system">Predeterminado del sistema</string>
+    <string name="settings_data">Datos</string>
+    <string name="settings_export">Exportar datos</string>
+    <string name="settings_export_body">Guarda todos los cafés, métodos, molinillos y calibraciones en un archivo.</string>
+    <string name="settings_import">Importar datos</string>
+    <string name="settings_import_body">Sustituye todos los datos con un archivo de copia de seguridad.</string>
+    <string name="import_confirm_title">¿Sustituir todos los datos?</string>
+    <string name="import_confirm_body">Todo lo que hay ahora en Tacca será sustituido por el contenido del archivo.</string>
+    <string name="import_confirm_action">Sustituir</string>
+    <string name="export_done">Datos exportados</string>
+    <string name="import_done">Datos importados</string>
+    <string name="backup_error_io">No se pudo leer o escribir el archivo</string>
+    <string name="backup_error_not_a_backup">Este archivo no es una copia de seguridad de Tacca</string>
+    <string name="backup_error_newer">Esta copia de seguridad procede de una versión más reciente de Tacca. Actualiza la aplicación e inténtalo de nuevo.</string>
+    <string name="backup_error_invalid">El archivo de copia de seguridad está dañado o incompleto</string>
+    <string name="settings_about">Acerca de</string>
+    <string name="settings_version">Versión %1$s</string>
+</resources>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_sections">Sections</string>
+    <string name="nav_calibrations">Réglages</string>
+    <string name="nav_coffees">Cafés</string>
+    <string name="nav_methods">Méthodes</string>
+    <string name="nav_grinders">Moulins</string>
+
+    <string name="action_save">Enregistrer</string>
+    <string name="action_cancel">Annuler</string>
+    <string name="action_delete">Supprimer</string>
+    <string name="action_close">Fermer</string>
+    <string name="action_back">Retour</string>
+    <string name="action_edit">Modifier</string>
+    <string name="action_search">Rechercher</string>
+    <string name="action_clear_search">Effacer la recherche</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="action_more">Plus d\'options</string>
+    <string name="action_new">Nouveau</string>
+    <string name="action_show_all">Tout afficher (%1$d)</string>
+
+    <plurals name="turns_count">
+        <item quantity="one">%d tour</item>
+        <item quantity="many">%d tours</item>
+        <item quantity="other">%d tours</item>
+    </plurals>
+    <plurals name="steps_count">
+        <item quantity="one">%d cran</item>
+        <item quantity="many">%d crans</item>
+        <item quantity="other">%d crans</item>
+    </plurals>
+    <string name="setting_turns_and_steps">%1$s + %2$s</string>
+    <string name="unit_turns">Tours</string>
+    <string name="unit_steps">Crans</string>
+    <plurals name="calibrations_count">
+        <item quantity="one">%d réglage</item>
+        <item quantity="many">%d réglages</item>
+        <item quantity="other">%d réglages</item>
+    </plurals>
+    <string name="calibrations_none">Aucun réglage pour l\'instant</string>
+    <plurals name="coffees_count">
+        <item quantity="one">%d café</item>
+        <item quantity="many">%d cafés</item>
+        <item quantity="other">%d cafés</item>
+    </plurals>
+
+    <string name="method_moka">Moka</string>
+    <string name="method_espresso">Expresso</string>
+    <string name="method_v60">V60</string>
+    <string name="method_french_press">Cafetière à piston</string>
+    <string name="method_aeropress">AeroPress</string>
+    <string name="icon_drop">Goutte</string>
+    <string name="icon_cup">Tasse</string>
+
+    <string name="tint_peach">Pêche</string>
+    <string name="tint_sand">Sable</string>
+    <string name="tint_sky">Ciel</string>
+    <string name="tint_sage">Sauge</string>
+    <string name="tint_lilac">Lilas</string>
+
+    <string name="home_title">Réglages</string>
+    <string name="home_filter_all">Tous</string>
+    <string name="home_search_hint">Rechercher café, méthode, moulin</string>
+    <string name="home_new_calibration">Nouveau réglage</string>
+    <string name="home_remove_coffee_filter">Retirer le filtre café</string>
+    <string name="home_empty_title">Aucun réglage pour l\'instant</string>
+    <string name="home_empty_body">Enregistrez le réglage qui convient pour un café, une méthode et un moulin.</string>
+    <string name="home_empty_setup">Vous ajouterez votre premier café et votre premier moulin en cours de route.</string>
+    <string name="home_no_results">Aucun réglage ne correspond</string>
+    <string name="home_clear_filters">Effacer les filtres</string>
+
+    <string name="detail_step_zero">Proche de zéro</string>
+    <plurals name="detail_step_turns">
+        <item quantity="one">Tournez %d tour complet</item>
+        <item quantity="many">Tournez %d tours complets</item>
+        <item quantity="other">Tournez %d tours complets</item>
+    </plurals>
+    <plurals name="detail_step_steps">
+        <item quantity="one">Ajoutez %d cran</item>
+        <item quantity="many">Ajoutez %d crans</item>
+        <item quantity="other">Ajoutez %d crans</item>
+    </plurals>
+    <plurals name="detail_turns_plus">
+        <item quantity="one">%d tour +</item>
+        <item quantity="many">%d tours +</item>
+        <item quantity="other">%d tours +</item>
+    </plurals>
+    <string name="detail_notes">Notes</string>
+    <string name="detail_same_coffee">Même café</string>
+    <string name="detail_not_found">Ce réglage n\'existe plus.</string>
+    <string name="detail_dial_description">Molette : %1$s</string>
+
+    <string name="editor_title_new">Nouveau réglage</string>
+    <string name="editor_title_edit">Modifier le réglage</string>
+    <string name="editor_section_coffee">Café</string>
+    <string name="editor_section_method">Méthode</string>
+    <string name="editor_section_grinder">Moulin</string>
+    <string name="editor_section_adjustment">Ajustement</string>
+    <string name="editor_section_notes">Notes</string>
+    <string name="editor_notes_hint">Dose, temps, rendement…</string>
+    <string name="editor_turns">Tours</string>
+    <string name="editor_optional">facultatif</string>
+    <string name="editor_single_turn_info">Ce moulin s\'ajuste en un seul tour : les crans suffisent.</string>
+    <string name="editor_steps">Crans</string>
+    <string name="editor_steps_range">%1$d–%2$d</string>
+    <string name="editor_steps_range_after_turns">%1$d–%2$d après les tours</string>
+    <string name="editor_steps_unbounded">sans limite</string>
+    <string name="editor_fewer_turns">Moins de tours</string>
+    <string name="editor_more_turns">Plus de tours</string>
+    <string name="editor_fewer_steps">Moins de crans</string>
+    <string name="editor_more_steps">Plus de crans</string>
+    <string name="editor_save_summary">Enregistrer · %1$s</string>
+    <string name="editor_replaces">Remplace le réglage actuel (%1$s)</string>
+    <string name="editor_delete">Supprimer le réglage</string>
+    <string name="editor_delete_confirm">Supprimer ce réglage ?</string>
+    <string name="editor_no_coffee">Ajoutez un café pour continuer</string>
+    <string name="editor_no_grinder">Ajoutez un moulin pour continuer</string>
+
+    <string name="grinder_kind_multi">Multi-tours · %1$d/tour</string>
+    <string name="grinder_kind_multi_unknown">Multi-tours · crans inconnus</string>
+    <string name="grinder_kind_single">Un seul tour · %1$s</string>
+    <string name="grinder_kind_single_unknown">Un seul tour · crans inconnus</string>
+
+    <string name="coffees_title">Cafés</string>
+    <string name="coffees_add">Ajouter un café</string>
+    <string name="coffees_search_label">Rechercher un café</string>
+    <string name="coffees_search_hint">Rechercher par nom…</string>
+    <string name="coffees_empty">Aucun café pour l\'instant. Ajoutez le premier.</string>
+    <string name="coffees_no_results">Aucun café ne correspond</string>
+    <string name="coffee_subtitle">%1$s · %2$s</string>
+    <string name="coffee_sheet_title_new">Nouveau café</string>
+    <string name="coffee_sheet_title_edit">Modifier le café</string>
+    <string name="coffee_name_label">Nom</string>
+    <string name="coffee_name_hint">Ex. Éthiopie Yirgacheffe — lavé</string>
+    <string name="coffee_duplicate_hint">Un café portant ce nom existe déjà</string>
+    <string name="coffee_delete">Supprimer le café</string>
+
+    <string name="methods_title">Méthodes</string>
+    <string name="methods_subtitle">Comment vous préparez votre café</string>
+    <string name="methods_add">Ajouter une méthode</string>
+    <string name="method_sheet_title_new">Nouvelle méthode</string>
+    <string name="method_sheet_title_edit">Modifier la méthode</string>
+    <string name="method_name_label">Nom</string>
+    <string name="method_name_hint">Ex. Chemex</string>
+    <string name="method_icon_label">Icône</string>
+    <string name="method_tint_label">Couleur</string>
+    <string name="method_duplicate_hint">Une méthode portant ce nom existe déjà</string>
+    <string name="method_delete">Supprimer la méthode</string>
+
+    <string name="grinders_title">Moulins</string>
+    <string name="grinders_subtitle">Vos moulins à café</string>
+    <string name="grinders_add">Ajouter un moulin</string>
+    <string name="grinder_chip_multi">Multi-tours</string>
+    <string name="grinder_chip_single">Un seul tour</string>
+    <plurals name="grinder_chip_per_turn">
+        <item quantity="one">%d cran par tour</item>
+        <item quantity="many">%d crans par tour</item>
+        <item quantity="other">%d crans par tour</item>
+    </plurals>
+    <string name="grinder_chip_unknown">Crans inconnus</string>
+    <string name="grinder_editor_title_new">Nouveau moulin</string>
+    <string name="grinder_editor_title_edit">Modifier le moulin</string>
+    <string name="grinder_name_label">Nom</string>
+    <string name="grinder_name_hint">Ex. le moulin de grand-mère</string>
+    <string name="grinder_duplicate_hint">Un moulin portant ce nom existe déjà</string>
+    <string name="grinder_multi_title">S\'ajuste sur plusieurs tours</string>
+    <string name="grinder_multi_body">Activez-le si la molette fait plus d\'un tour complet entre fin et gros.</string>
+    <string name="grinder_steps_per_turn">Crans par tour</string>
+    <string name="grinder_steps_total">Crans au total</string>
+    <string name="grinder_steps_optional">Facultatif · aide à vérifier les valeurs</string>
+    <string name="grinder_steps_not_set">Non défini</string>
+    <string name="grinder_steps_unknown_action">Je ne sais pas</string>
+    <string name="grinder_preview_label">Les réglages se liront ainsi</string>
+    <plurals name="grinder_out_of_range">
+        <item quantity="one">%d réglage est hors de la nouvelle plage</item>
+        <item quantity="many">%d réglages sont hors de la nouvelle plage</item>
+        <item quantity="other">%d réglages sont hors de la nouvelle plage</item>
+    </plurals>
+    <string name="grinder_delete">Supprimer le moulin</string>
+
+    <string name="confirm_delete_title">Supprimer “%1$s”?</string>
+    <plurals name="confirm_delete_cascade_body">
+        <item quantity="one">%d réglage sera également supprimé.</item>
+        <item quantity="many">%d réglages seront également supprimés.</item>
+        <item quantity="other">%d réglages seront également supprimés.</item>
+    </plurals>
+    <string name="confirm_delete_no_cascade">Rien d\'autre ne sera supprimé.</string>
+
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_accent">Couleur d\'accent</string>
+    <string name="accent_terracotta">Terre cuite</string>
+    <string name="accent_pine">Pin</string>
+    <string name="accent_indigo">Indigo</string>
+    <string name="accent_plum">Prune</string>
+    <string name="settings_theme">Thème</string>
+    <string name="theme_system">Système</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Sombre</string>
+    <string name="settings_language">Langue</string>
+    <string name="language_system">Langue du système</string>
+    <string name="settings_data">Données</string>
+    <string name="settings_export">Exporter les données</string>
+    <string name="settings_export_body">Enregistrez tous les cafés, méthodes, moulins et réglages dans un fichier.</string>
+    <string name="settings_import">Importer des données</string>
+    <string name="settings_import_body">Remplace toutes les données par un fichier de sauvegarde.</string>
+    <string name="import_confirm_title">Remplacer toutes les données ?</string>
+    <string name="import_confirm_body">Tout ce qui se trouve actuellement dans Tacca sera remplacé par le contenu du fichier.</string>
+    <string name="import_confirm_action">Remplacer</string>
+    <string name="export_done">Données exportées</string>
+    <string name="import_done">Données importées</string>
+    <string name="backup_error_io">Impossible de lire ou d\'écrire le fichier</string>
+    <string name="backup_error_not_a_backup">Ce fichier n\'est pas une sauvegarde de Tacca</string>
+    <string name="backup_error_newer">Cette sauvegarde provient d\'une version plus récente de Tacca. Mettez à jour l\'application et réessayez.</string>
+    <string name="backup_error_invalid">Le fichier de sauvegarde est endommagé ou incomplet</string>
+    <string name="settings_about">À propos</string>
+    <string name="settings_version">Version %1$s</string>
+</resources>

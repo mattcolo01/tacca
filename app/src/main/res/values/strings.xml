@@ -1,4 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Tacca</string>
+    <string name="brand_name" translatable="false">tacca</string>
+
+    <!-- Navigation -->
+    <string name="nav_sections">Sections</string>
+    <string name="nav_calibrations">Calibrations</string>
+    <string name="nav_coffees">Coffees</string>
+    <string name="nav_methods">Methods</string>
+    <string name="nav_grinders">Grinders</string>
+
+    <!-- Common actions -->
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_close">Close</string>
+    <string name="action_back">Back</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_search">Search</string>
+    <string name="action_clear_search">Clear search</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_more">More options</string>
+    <string name="action_new">New</string>
+    <string name="action_show_all">Show all (%1$d)</string>
+
+    <!-- Setting units -->
+    <plurals name="turns_count">
+        <item quantity="one">%d turn</item>
+        <item quantity="other">%d turns</item>
+    </plurals>
+    <plurals name="steps_count">
+        <item quantity="one">%d step</item>
+        <item quantity="other">%d steps</item>
+    </plurals>
+    <string name="setting_turns_and_steps">%1$s + %2$s</string>
+    <string name="unit_turns">Turns</string>
+    <string name="unit_steps">Steps</string>
+    <plurals name="calibrations_count">
+        <item quantity="one">%d calibration</item>
+        <item quantity="other">%d calibrations</item>
+    </plurals>
+    <string name="calibrations_none">No calibrations yet</string>
+    <plurals name="coffees_count">
+        <item quantity="one">%d coffee</item>
+        <item quantity="other">%d coffees</item>
+    </plurals>
+
+    <!-- Built-in methods and icons -->
+    <string name="method_moka">Moka</string>
+    <string name="method_espresso">Espresso</string>
+    <string name="method_v60">V60</string>
+    <string name="method_french_press">French press</string>
+    <string name="method_aeropress">AeroPress</string>
+    <string name="icon_drop">Drop</string>
+    <string name="icon_cup">Cup</string>
+
+    <!-- Tints -->
+    <string name="tint_peach">Peach</string>
+    <string name="tint_sand">Sand</string>
+    <string name="tint_sky">Sky</string>
+    <string name="tint_sage">Sage</string>
+    <string name="tint_lilac">Lilac</string>
+
+    <!-- Home -->
+    <string name="home_title">Calibrations</string>
+    <string name="home_filter_all">All</string>
+    <string name="home_search_hint">Search coffee, method, grinder</string>
+    <string name="home_new_calibration">New calibration</string>
+    <string name="home_remove_coffee_filter">Remove coffee filter</string>
+    <string name="home_empty_title">No calibrations yet</string>
+    <string name="home_empty_body">Save the setting that works for a coffee, a brew method and a grinder.</string>
+    <string name="home_empty_setup">You\'ll add your first coffee and grinder along the way.</string>
+    <string name="home_no_results">No calibrations match</string>
+    <string name="home_clear_filters">Clear filters</string>
+
+    <!-- Detail -->
+    <string name="detail_step_zero">Close to zero</string>
+    <plurals name="detail_step_turns">
+        <item quantity="one">Turn %d full turn</item>
+        <item quantity="other">Turn %d full turns</item>
+    </plurals>
+    <plurals name="detail_step_steps">
+        <item quantity="one">Add %d step</item>
+        <item quantity="other">Add %d steps</item>
+    </plurals>
+    <plurals name="detail_turns_plus">
+        <item quantity="one">%d turn +</item>
+        <item quantity="other">%d turns +</item>
+    </plurals>
+    <string name="detail_more_rings" translatable="false">+%1$d</string>
+    <string name="detail_notes">Notes</string>
+    <string name="detail_same_coffee">Same coffee</string>
+    <string name="detail_not_found">This calibration no longer exists.</string>
+    <string name="detail_dial_description">Dial: %1$s</string>
+
+    <!-- Calibration editor -->
+    <string name="editor_title_new">New calibration</string>
+    <string name="editor_title_edit">Edit calibration</string>
+    <string name="editor_section_coffee">Coffee</string>
+    <string name="editor_section_method">Method</string>
+    <string name="editor_section_grinder">Grinder</string>
+    <string name="editor_section_adjustment">Adjustment</string>
+    <string name="editor_section_notes">Notes</string>
+    <string name="editor_notes_hint">Dose, time, yield…</string>
+    <string name="editor_turns">Turns</string>
+    <string name="editor_optional">optional</string>
+    <string name="editor_single_turn_info">This grinder adjusts within a single turn: steps are enough.</string>
+    <string name="editor_steps">Steps</string>
+    <string name="editor_steps_range">%1$d–%2$d</string>
+    <string name="editor_steps_range_after_turns">%1$d–%2$d after turns</string>
+    <string name="editor_steps_unbounded">no limit</string>
+    <string name="editor_fewer_turns">Fewer turns</string>
+    <string name="editor_more_turns">More turns</string>
+    <string name="editor_fewer_steps">Fewer steps</string>
+    <string name="editor_more_steps">More steps</string>
+    <string name="editor_save_summary">Save · %1$s</string>
+    <string name="editor_replaces">Replaces the current setting (%1$s)</string>
+    <string name="editor_delete">Delete calibration</string>
+    <string name="editor_delete_confirm">Delete this calibration?</string>
+    <string name="editor_no_coffee">Add a coffee to continue</string>
+    <string name="editor_no_grinder">Add a grinder to continue</string>
+
+    <!-- Grinder kinds (editor subtitles) -->
+    <string name="grinder_kind_multi">Multi-turn · %1$d/turn</string>
+    <string name="grinder_kind_multi_unknown">Multi-turn · steps unknown</string>
+    <string name="grinder_kind_single">Single turn · %1$s</string>
+    <string name="grinder_kind_single_unknown">Single turn · steps unknown</string>
+
+    <!-- Coffees -->
+    <string name="coffees_title">Coffees</string>
+    <string name="coffees_add">Add coffee</string>
+    <string name="coffees_search_label">Search a coffee</string>
+    <string name="coffees_search_hint">Search by name…</string>
+    <string name="coffees_empty">No coffees yet. Add the first one.</string>
+    <string name="coffees_no_results">No coffees match</string>
+    <string name="coffee_subtitle">%1$s · %2$s</string>
+    <string name="coffee_sheet_title_new">New coffee</string>
+    <string name="coffee_sheet_title_edit">Edit coffee</string>
+    <string name="coffee_name_label">Name</string>
+    <string name="coffee_name_hint">e.g. Ethiopia Yirgacheffe — washed</string>
+    <string name="coffee_duplicate_hint">A coffee with this name already exists</string>
+    <string name="coffee_delete">Delete coffee</string>
+
+    <!-- Methods -->
+    <string name="methods_title">Methods</string>
+    <string name="methods_subtitle">How you brew your coffee</string>
+    <string name="methods_add">Add method</string>
+    <string name="method_sheet_title_new">New method</string>
+    <string name="method_sheet_title_edit">Edit method</string>
+    <string name="method_name_label">Name</string>
+    <string name="method_name_hint">e.g. Chemex</string>
+    <string name="method_icon_label">Icon</string>
+    <string name="method_tint_label">Color</string>
+    <string name="method_duplicate_hint">A method with this name already exists</string>
+    <string name="method_delete">Delete method</string>
+
+    <!-- Grinders -->
+    <string name="grinders_title">Grinders</string>
+    <string name="grinders_subtitle">Your coffee grinders</string>
+    <string name="grinders_add">Add grinder</string>
+    <string name="grinder_chip_multi">Multi-turn</string>
+    <string name="grinder_chip_single">Single turn</string>
+    <plurals name="grinder_chip_per_turn">
+        <item quantity="one">%d step per turn</item>
+        <item quantity="other">%d steps per turn</item>
+    </plurals>
+    <string name="grinder_chip_unknown">Steps unknown</string>
+    <string name="grinder_editor_title_new">New grinder</string>
+    <string name="grinder_editor_title_edit">Edit grinder</string>
+    <string name="grinder_name_label">Name</string>
+    <string name="grinder_name_hint">e.g. Grandma\'s grinder</string>
+    <string name="grinder_duplicate_hint">A grinder with this name already exists</string>
+    <string name="grinder_multi_title">Adjusts over several turns</string>
+    <string name="grinder_multi_body">Turn it on if the dial makes more than one full turn from fine to coarse.</string>
+    <string name="grinder_steps_per_turn">Steps per turn</string>
+    <string name="grinder_steps_total">Total steps</string>
+    <string name="grinder_steps_optional">Optional · helps check values</string>
+    <string name="grinder_steps_not_set">Not set</string>
+    <string name="grinder_steps_unknown_action">I don\'t know</string>
+    <string name="grinder_preview_label">Calibrations will read like this</string>
+    <plurals name="grinder_out_of_range">
+        <item quantity="one">%d calibration is outside the new range</item>
+        <item quantity="other">%d calibrations are outside the new range</item>
+    </plurals>
+    <string name="grinder_delete">Delete grinder</string>
+
+    <!-- Confirmations -->
+    <string name="confirm_delete_title">Delete “%1$s”?</string>
+    <plurals name="confirm_delete_cascade_body">
+        <item quantity="one">%d calibration will be deleted too.</item>
+        <item quantity="other">%d calibrations will be deleted too.</item>
+    </plurals>
+    <string name="confirm_delete_no_cascade">Nothing else will be deleted.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_accent">Accent color</string>
+    <string name="accent_terracotta">Terracotta</string>
+    <string name="accent_pine">Pine</string>
+    <string name="accent_indigo">Indigo</string>
+    <string name="accent_plum">Plum</string>
+    <string name="settings_theme">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_language">Language</string>
+    <string name="language_system">System default</string>
+    <string name="language_en" translatable="false">English</string>
+    <string name="language_it" translatable="false">Italiano</string>
+    <string name="language_es" translatable="false">Español</string>
+    <string name="language_fr" translatable="false">Français</string>
+    <string name="language_de" translatable="false">Deutsch</string>
+    <string name="settings_data">Data</string>
+    <string name="settings_export">Export data</string>
+    <string name="settings_export_body">Save all coffees, methods, grinders and calibrations to a file.</string>
+    <string name="settings_import">Import data</string>
+    <string name="settings_import_body">Replace all data with a backup file.</string>
+    <string name="import_confirm_title">Replace all data?</string>
+    <string name="import_confirm_body">Everything currently in Tacca will be replaced by the contents of the file.</string>
+    <string name="import_confirm_action">Replace</string>
+    <string name="export_done">Data exported</string>
+    <string name="import_done">Data imported</string>
+    <string name="backup_error_io">Couldn\'t read or write the file</string>
+    <string name="backup_error_not_a_backup">This file is not a Tacca backup</string>
+    <string name="backup_error_newer">This backup comes from a newer version of Tacca. Update the app and try again.</string>
+    <string name="backup_error_invalid">The backup file is damaged or incomplete</string>
+    <string name="backup_file_name" translatable="false">tacca-backup-%1$s.json</string>
+    <string name="settings_about">About</string>
+    <string name="settings_version">Version %1$s</string>
 </resources>

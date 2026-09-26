@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_sections">Sezioni</string>
+    <string name="nav_calibrations">Calibrazioni</string>
+    <string name="nav_coffees">Caffè</string>
+    <string name="nav_methods">Metodi</string>
+    <string name="nav_grinders">Macine</string>
+
+    <string name="action_save">Salva</string>
+    <string name="action_cancel">Annulla</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_close">Chiudi</string>
+    <string name="action_back">Indietro</string>
+    <string name="action_edit">Modifica</string>
+    <string name="action_search">Cerca</string>
+    <string name="action_clear_search">Cancella ricerca</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_more">Altre opzioni</string>
+    <string name="action_new">Nuovo</string>
+    <string name="action_show_all">Mostra tutti (%1$d)</string>
+
+    <plurals name="turns_count">
+        <item quantity="one">%d giro</item>
+        <item quantity="many">%d giri</item>
+        <item quantity="other">%d giri</item>
+    </plurals>
+    <plurals name="steps_count">
+        <item quantity="one">%d step</item>
+        <item quantity="many">%d step</item>
+        <item quantity="other">%d step</item>
+    </plurals>
+    <string name="setting_turns_and_steps">%1$s + %2$s</string>
+    <string name="unit_turns">Giri</string>
+    <string name="unit_steps">Step</string>
+    <plurals name="calibrations_count">
+        <item quantity="one">%d calibrazione</item>
+        <item quantity="many">%d calibrazioni</item>
+        <item quantity="other">%d calibrazioni</item>
+    </plurals>
+    <string name="calibrations_none">Ancora nessuna calibrazione</string>
+    <plurals name="coffees_count">
+        <item quantity="one">%d caffè in dispensa</item>
+        <item quantity="many">%d caffè in dispensa</item>
+        <item quantity="other">%d caffè in dispensa</item>
+    </plurals>
+
+    <string name="method_moka">Moka</string>
+    <string name="method_espresso">Espresso</string>
+    <string name="method_v60">V60</string>
+    <string name="method_french_press">French press</string>
+    <string name="method_aeropress">AeroPress</string>
+    <string name="icon_drop">Goccia</string>
+    <string name="icon_cup">Tazza</string>
+
+    <string name="tint_peach">Pesca</string>
+    <string name="tint_sand">Sabbia</string>
+    <string name="tint_sky">Cielo</string>
+    <string name="tint_sage">Salvia</string>
+    <string name="tint_lilac">Lilla</string>
+
+    <string name="home_title">Calibrazioni</string>
+    <string name="home_filter_all">Tutti</string>
+    <string name="home_search_hint">Cerca caffè, metodo, macina</string>
+    <string name="home_new_calibration">Nuova calibrazione</string>
+    <string name="home_remove_coffee_filter">Rimuovi filtro caffè</string>
+    <string name="home_empty_title">Ancora nessuna calibrazione</string>
+    <string name="home_empty_body">Salva la regolazione giusta per un caffè, un metodo e una macina.</string>
+    <string name="home_empty_setup">Aggiungerai il primo caffè e la prima macina strada facendo.</string>
+    <string name="home_no_results">Nessuna calibrazione corrisponde</string>
+    <string name="home_clear_filters">Azzera filtri</string>
+
+    <string name="detail_step_zero">Chiudi fino a zero</string>
+    <plurals name="detail_step_turns">
+        <item quantity="one">Ruota %d giro completo</item>
+        <item quantity="many">Ruota %d giri completi</item>
+        <item quantity="other">Ruota %d giri completi</item>
+    </plurals>
+    <plurals name="detail_step_steps">
+        <item quantity="one">Aggiungi %d step</item>
+        <item quantity="many">Aggiungi %d step</item>
+        <item quantity="other">Aggiungi %d step</item>
+    </plurals>
+    <plurals name="detail_turns_plus">
+        <item quantity="one">%d giro +</item>
+        <item quantity="many">%d giri +</item>
+        <item quantity="other">%d giri +</item>
+    </plurals>
+    <string name="detail_notes">Note</string>
+    <string name="detail_same_coffee">Stesso caffè</string>
+    <string name="detail_not_found">Questa calibrazione non esiste più.</string>
+    <string name="detail_dial_description">Quadrante: %1$s</string>
+
+    <string name="editor_title_new">Nuova calibrazione</string>
+    <string name="editor_title_edit">Modifica calibrazione</string>
+    <string name="editor_section_coffee">Caffè</string>
+    <string name="editor_section_method">Metodo</string>
+    <string name="editor_section_grinder">Macina</string>
+    <string name="editor_section_adjustment">Regolazione</string>
+    <string name="editor_section_notes">Note</string>
+    <string name="editor_notes_hint">Dose, tempo, resa…</string>
+    <string name="editor_turns">Giri</string>
+    <string name="editor_optional">opzionale</string>
+    <string name="editor_single_turn_info">Questa macina si regola entro un solo giro: bastano gli step.</string>
+    <string name="editor_steps">Step</string>
+    <string name="editor_steps_range">%1$d–%2$d</string>
+    <string name="editor_steps_range_after_turns">%1$d–%2$d dopo i giri</string>
+    <string name="editor_steps_unbounded">senza limite</string>
+    <string name="editor_fewer_turns">Meno giri</string>
+    <string name="editor_more_turns">Più giri</string>
+    <string name="editor_fewer_steps">Meno step</string>
+    <string name="editor_more_steps">Più step</string>
+    <string name="editor_save_summary">Salva · %1$s</string>
+    <string name="editor_replaces">Sostituisce la regolazione attuale (%1$s)</string>
+    <string name="editor_delete">Elimina calibrazione</string>
+    <string name="editor_delete_confirm">Eliminare questa calibrazione?</string>
+    <string name="editor_no_coffee">Aggiungi un caffè per continuare</string>
+    <string name="editor_no_grinder">Aggiungi una macina per continuare</string>
+
+    <string name="grinder_kind_multi">Multi-giro · %1$d/giro</string>
+    <string name="grinder_kind_multi_unknown">Multi-giro · step sconosciuti</string>
+    <string name="grinder_kind_single">Giro singolo · %1$s</string>
+    <string name="grinder_kind_single_unknown">Giro singolo · step sconosciuti</string>
+
+    <string name="coffees_title">Caffè</string>
+    <string name="coffees_add">Aggiungi caffè</string>
+    <string name="coffees_search_label">Cerca un caffè</string>
+    <string name="coffees_search_hint">Cerca per nome, origine…</string>
+    <string name="coffees_empty">Ancora nessun caffè. Aggiungi il primo.</string>
+    <string name="coffees_no_results">Nessun caffè corrisponde</string>
+    <string name="coffee_subtitle">%1$s · %2$s</string>
+    <string name="coffee_sheet_title_new">Nuovo caffè</string>
+    <string name="coffee_sheet_title_edit">Modifica caffè</string>
+    <string name="coffee_name_label">Nome</string>
+    <string name="coffee_name_hint">Es. Etiopia Yirgacheffe — lavato</string>
+    <string name="coffee_duplicate_hint">Esiste già un caffè con questo nome</string>
+    <string name="coffee_delete">Elimina caffè</string>
+
+    <string name="methods_title">Metodi</string>
+    <string name="methods_subtitle">Come prepari il tuo caffè</string>
+    <string name="methods_add">Aggiungi metodo</string>
+    <string name="method_sheet_title_new">Nuovo metodo</string>
+    <string name="method_sheet_title_edit">Modifica metodo</string>
+    <string name="method_name_label">Nome</string>
+    <string name="method_name_hint">Es. Chemex</string>
+    <string name="method_icon_label">Icona</string>
+    <string name="method_tint_label">Colore</string>
+    <string name="method_duplicate_hint">Esiste già un metodo con questo nome</string>
+    <string name="method_delete">Elimina metodo</string>
+
+    <string name="grinders_title">Macine</string>
+    <string name="grinders_subtitle">I tuoi macinacaffè</string>
+    <string name="grinders_add">Aggiungi macina</string>
+    <string name="grinder_chip_multi">Multi-giro</string>
+    <string name="grinder_chip_single">Giro singolo</string>
+    <plurals name="grinder_chip_per_turn">
+        <item quantity="one">%d step per giro</item>
+        <item quantity="many">%d step per giro</item>
+        <item quantity="other">%d step per giro</item>
+    </plurals>
+    <string name="grinder_chip_unknown">Step sconosciuti</string>
+    <string name="grinder_editor_title_new">Nuova macina</string>
+    <string name="grinder_editor_title_edit">Modifica macina</string>
+    <string name="grinder_name_label">Nome</string>
+    <string name="grinder_name_hint">Es. il macinino della nonna</string>
+    <string name="grinder_duplicate_hint">Esiste già una macina con questo nome</string>
+    <string name="grinder_multi_title">Si regola con più giri</string>
+    <string name="grinder_multi_body">Attivalo se la ghiera fa più di un giro completo tra fine e grosso.</string>
+    <string name="grinder_steps_per_turn">Step per giro</string>
+    <string name="grinder_steps_total">Step totali</string>
+    <string name="grinder_steps_optional">Opzionale · aiuta a controllare i valori</string>
+    <string name="grinder_steps_not_set">Non impostato</string>
+    <string name="grinder_steps_unknown_action">Non lo so</string>
+    <string name="grinder_preview_label">Le calibrazioni si leggeranno così</string>
+    <plurals name="grinder_out_of_range">
+        <item quantity="one">%d calibrazione è fuori dal nuovo intervallo</item>
+        <item quantity="many">%d calibrazioni sono fuori dal nuovo intervallo</item>
+        <item quantity="other">%d calibrazioni sono fuori dal nuovo intervallo</item>
+    </plurals>
+    <string name="grinder_delete">Elimina macina</string>
+
+    <string name="confirm_delete_title">Eliminare “%1$s”?</string>
+    <plurals name="confirm_delete_cascade_body">
+        <item quantity="one">Verrà eliminata anche %d calibrazione.</item>
+        <item quantity="many">Verranno eliminate anche %d calibrazioni.</item>
+        <item quantity="other">Verranno eliminate anche %d calibrazioni.</item>
+    </plurals>
+    <string name="confirm_delete_no_cascade">Nient\'altro verrà eliminato.</string>
+
+    <string name="settings_title">Impostazioni</string>
+    <string name="settings_accent">Colore principale</string>
+    <string name="accent_terracotta">Terracotta</string>
+    <string name="accent_pine">Pino</string>
+    <string name="accent_indigo">Indaco</string>
+    <string name="accent_plum">Prugna</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Sistema</string>
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_dark">Scuro</string>
+    <string name="settings_language">Lingua</string>
+    <string name="language_system">Predefinita di sistema</string>
+    <string name="settings_data">Dati</string>
+    <string name="settings_export">Esporta dati</string>
+    <string name="settings_export_body">Salva caffè, metodi, macine e calibrazioni in un file.</string>
+    <string name="settings_import">Importa dati</string>
+    <string name="settings_import_body">Sostituisci tutti i dati con un file di backup.</string>
+    <string name="import_confirm_title">Sostituire tutti i dati?</string>
+    <string name="import_confirm_body">Tutto ciò che c\'è ora in Tacca sarà sostituito dal contenuto del file.</string>
+    <string name="import_confirm_action">Sostituisci</string>
+    <string name="export_done">Dati esportati</string>
+    <string name="import_done">Dati importati</string>
+    <string name="backup_error_io">Impossibile leggere o scrivere il file</string>
+    <string name="backup_error_not_a_backup">Questo file non è un backup di Tacca</string>
+    <string name="backup_error_newer">Questo backup viene da una versione più recente di Tacca. Aggiorna l\'app e riprova.</string>
+    <string name="backup_error_invalid">Il file di backup è danneggiato o incompleto</string>
+    <string name="settings_about">Informazioni</string>
+    <string name="settings_version">Versione %1$s</string>
+</resources>

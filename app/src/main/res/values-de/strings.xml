@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nav_sections">Bereiche</string>
+    <string name="nav_calibrations">Einstellungen</string>
+    <string name="nav_coffees">Kaffees</string>
+    <string name="nav_methods">Zubereitungen</string>
+    <string name="nav_grinders">Mühlen</string>
+
+    <string name="action_save">Speichern</string>
+    <string name="action_cancel">Abbrechen</string>
+    <string name="action_delete">Löschen</string>
+    <string name="action_close">Schließen</string>
+    <string name="action_back">Zurück</string>
+    <string name="action_edit">Bearbeiten</string>
+    <string name="action_search">Suchen</string>
+    <string name="action_clear_search">Suche löschen</string>
+    <string name="action_settings">Optionen</string>
+    <string name="action_more">Weitere Optionen</string>
+    <string name="action_new">Neu</string>
+    <string name="action_show_all">Alle anzeigen (%1$d)</string>
+
+    <plurals name="turns_count">
+        <item quantity="one">%d Umdrehung</item>
+        <item quantity="other">%d Umdrehungen</item>
+    </plurals>
+    <plurals name="steps_count">
+        <item quantity="one">%d Klick</item>
+        <item quantity="other">%d Klicks</item>
+    </plurals>
+    <string name="setting_turns_and_steps">%1$s + %2$s</string>
+    <string name="unit_turns">Umdrehungen</string>
+    <string name="unit_steps">Klicks</string>
+    <plurals name="calibrations_count">
+        <item quantity="one">%d Einstellung</item>
+        <item quantity="other">%d Einstellungen</item>
+    </plurals>
+    <string name="calibrations_none">Noch keine Einstellungen</string>
+    <plurals name="coffees_count">
+        <item quantity="one">%d Kaffee</item>
+        <item quantity="other">%d Kaffees</item>
+    </plurals>
+
+    <string name="method_moka">Moka</string>
+    <string name="method_espresso">Espresso</string>
+    <string name="method_v60">V60</string>
+    <string name="method_french_press">French Press</string>
+    <string name="method_aeropress">AeroPress</string>
+    <string name="icon_drop">Tropfen</string>
+    <string name="icon_cup">Tasse</string>
+
+    <string name="tint_peach">Pfirsich</string>
+    <string name="tint_sand">Sand</string>
+    <string name="tint_sky">Himmel</string>
+    <string name="tint_sage">Salbei</string>
+    <string name="tint_lilac">Lila</string>
+
+    <string name="home_title">Einstellungen</string>
+    <string name="home_filter_all">Alle</string>
+    <string name="home_search_hint">Kaffee, Zubereitung, Mühle suchen</string>
+    <string name="home_new_calibration">Neue Einstellung</string>
+    <string name="home_remove_coffee_filter">Kaffeefilter entfernen</string>
+    <string name="home_empty_title">Noch keine Einstellungen</string>
+    <string name="home_empty_body">Speichere die Einstellung, die für einen Kaffee, eine Zubereitung und eine Mühle passt.</string>
+    <string name="home_empty_setup">Deinen ersten Kaffee und deine erste Mühle fügst du unterwegs hinzu.</string>
+    <string name="home_no_results">Keine Einstellung passt</string>
+    <string name="home_clear_filters">Filter zurücksetzen</string>
+
+    <string name="detail_step_zero">Nahe null</string>
+    <plurals name="detail_step_turns">
+        <item quantity="one">Drehe %d volle Umdrehung</item>
+        <item quantity="other">Drehe %d volle Umdrehungen</item>
+    </plurals>
+    <plurals name="detail_step_steps">
+        <item quantity="one">Füge %d Klick hinzu</item>
+        <item quantity="other">Füge %d Klicks hinzu</item>
+    </plurals>
+    <plurals name="detail_turns_plus">
+        <item quantity="one">%d Umdrehung +</item>
+        <item quantity="other">%d Umdrehungen +</item>
+    </plurals>
+    <string name="detail_notes">Notizen</string>
+    <string name="detail_same_coffee">Gleicher Kaffee</string>
+    <string name="detail_not_found">Diese Einstellung gibt es nicht mehr.</string>
+    <string name="detail_dial_description">Rad: %1$s</string>
+
+    <string name="editor_title_new">Neue Einstellung</string>
+    <string name="editor_title_edit">Einstellung bearbeiten</string>
+    <string name="editor_section_coffee">Kaffee</string>
+    <string name="editor_section_method">Zubereitung</string>
+    <string name="editor_section_grinder">Mühle</string>
+    <string name="editor_section_adjustment">Anpassung</string>
+    <string name="editor_section_notes">Notizen</string>
+    <string name="editor_notes_hint">Dosis, Zeit, Ausbeute…</string>
+    <string name="editor_turns">Umdrehungen</string>
+    <string name="editor_optional">optional</string>
+    <string name="editor_single_turn_info">Diese Mühle stellt sich innerhalb einer Umdrehung ein: Klicks reichen aus.</string>
+    <string name="editor_steps">Klicks</string>
+    <string name="editor_steps_range">%1$d–%2$d</string>
+    <string name="editor_steps_range_after_turns">%1$d–%2$d nach den Umdrehungen</string>
+    <string name="editor_steps_unbounded">kein Limit</string>
+    <string name="editor_fewer_turns">Weniger Umdrehungen</string>
+    <string name="editor_more_turns">Mehr Umdrehungen</string>
+    <string name="editor_fewer_steps">Weniger Klicks</string>
+    <string name="editor_more_steps">Mehr Klicks</string>
+    <string name="editor_save_summary">Speichern · %1$s</string>
+    <string name="editor_replaces">Ersetzt die aktuelle Einstellung (%1$s)</string>
+    <string name="editor_delete">Einstellung löschen</string>
+    <string name="editor_delete_confirm">Diese Einstellung löschen?</string>
+    <string name="editor_no_coffee">Füge einen Kaffee hinzu, um fortzufahren</string>
+    <string name="editor_no_grinder">Füge eine Mühle hinzu, um fortzufahren</string>
+
+    <string name="grinder_kind_multi">Mehrere Umdrehungen · %1$d/Umdrehung</string>
+    <string name="grinder_kind_multi_unknown">Mehrere Umdrehungen · Klicks unbekannt</string>
+    <string name="grinder_kind_single">Eine Umdrehung · %1$s</string>
+    <string name="grinder_kind_single_unknown">Eine Umdrehung · Klicks unbekannt</string>
+
+    <string name="coffees_title">Kaffees</string>
+    <string name="coffees_add">Kaffee hinzufügen</string>
+    <string name="coffees_search_label">Einen Kaffee suchen</string>
+    <string name="coffees_search_hint">Nach Namen suchen…</string>
+    <string name="coffees_empty">Noch keine Kaffees. Füge den ersten hinzu.</string>
+    <string name="coffees_no_results">Kein Kaffee passt</string>
+    <string name="coffee_subtitle">%1$s · %2$s</string>
+    <string name="coffee_sheet_title_new">Neuer Kaffee</string>
+    <string name="coffee_sheet_title_edit">Kaffee bearbeiten</string>
+    <string name="coffee_name_label">Name</string>
+    <string name="coffee_name_hint">z. B. Äthiopien Yirgacheffe — gewaschen</string>
+    <string name="coffee_duplicate_hint">Ein Kaffee mit diesem Namen existiert bereits</string>
+    <string name="coffee_delete">Kaffee löschen</string>
+
+    <string name="methods_title">Zubereitungen</string>
+    <string name="methods_subtitle">Wie du deinen Kaffee zubereitest</string>
+    <string name="methods_add">Zubereitung hinzufügen</string>
+    <string name="method_sheet_title_new">Neue Zubereitung</string>
+    <string name="method_sheet_title_edit">Zubereitung bearbeiten</string>
+    <string name="method_name_label">Name</string>
+    <string name="method_name_hint">z. B. Chemex</string>
+    <string name="method_icon_label">Symbol</string>
+    <string name="method_tint_label">Farbe</string>
+    <string name="method_duplicate_hint">Eine Zubereitung mit diesem Namen existiert bereits</string>
+    <string name="method_delete">Zubereitung löschen</string>
+
+    <string name="grinders_title">Mühlen</string>
+    <string name="grinders_subtitle">Deine Kaffeemühlen</string>
+    <string name="grinders_add">Mühle hinzufügen</string>
+    <string name="grinder_chip_multi">Mehrere Umdrehungen</string>
+    <string name="grinder_chip_single">Eine Umdrehung</string>
+    <plurals name="grinder_chip_per_turn">
+        <item quantity="one">%d Klick pro Umdrehung</item>
+        <item quantity="other">%d Klicks pro Umdrehung</item>
+    </plurals>
+    <string name="grinder_chip_unknown">Klicks unbekannt</string>
+    <string name="grinder_editor_title_new">Neue Mühle</string>
+    <string name="grinder_editor_title_edit">Mühle bearbeiten</string>
+    <string name="grinder_name_label">Name</string>
+    <string name="grinder_name_hint">z. B. Omas Mühle</string>
+    <string name="grinder_duplicate_hint">Eine Mühle mit diesem Namen existiert bereits</string>
+    <string name="grinder_multi_title">Stellt sich über mehrere Umdrehungen ein</string>
+    <string name="grinder_multi_body">Aktiviere dies, wenn das Rad mehr als eine volle Umdrehung von fein bis grob macht.</string>
+    <string name="grinder_steps_per_turn">Klicks pro Umdrehung</string>
+    <string name="grinder_steps_total">Klicks insgesamt</string>
+    <string name="grinder_steps_optional">Optional · hilft, die Werte zu überprüfen</string>
+    <string name="grinder_steps_not_set">Nicht festgelegt</string>
+    <string name="grinder_steps_unknown_action">Ich weiß es nicht</string>
+    <string name="grinder_preview_label">Einstellungen werden so angezeigt</string>
+    <plurals name="grinder_out_of_range">
+        <item quantity="one">%d Einstellung liegt außerhalb des neuen Bereichs.</item>
+        <item quantity="other">%d Einstellungen liegen außerhalb des neuen Bereichs.</item>
+    </plurals>
+    <string name="grinder_delete">Mühle löschen</string>
+
+    <string name="confirm_delete_title">„%1$s“ löschen?</string>
+    <plurals name="confirm_delete_cascade_body">
+        <item quantity="one">%d Einstellung wird ebenfalls gelöscht.</item>
+        <item quantity="other">%d Einstellungen werden ebenfalls gelöscht.</item>
+    </plurals>
+    <string name="confirm_delete_no_cascade">Es wird nichts anderes gelöscht.</string>
+
+    <string name="settings_title">Optionen</string>
+    <string name="settings_accent">Akzentfarbe</string>
+    <string name="accent_terracotta">Terrakotta</string>
+    <string name="accent_pine">Kiefer</string>
+    <string name="accent_indigo">Indigo</string>
+    <string name="accent_plum">Pflaume</string>
+    <string name="settings_theme">Design</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Dunkel</string>
+    <string name="settings_language">Sprache</string>
+    <string name="language_system">Systemsprache</string>
+    <string name="settings_data">Daten</string>
+    <string name="settings_export">Daten exportieren</string>
+    <string name="settings_export_body">Speichert alle Kaffees, Zubereitungen, Mühlen und Einstellungen in einer Datei.</string>
+    <string name="settings_import">Daten importieren</string>
+    <string name="settings_import_body">Ersetzt alle Daten durch eine Sicherungsdatei.</string>
+    <string name="import_confirm_title">Alle Daten ersetzen?</string>
+    <string name="import_confirm_body">Alles, was derzeit in Tacca vorhanden ist, wird durch den Inhalt der Datei ersetzt.</string>
+    <string name="import_confirm_action">Ersetzen</string>
+    <string name="export_done">Daten exportiert</string>
+    <string name="import_done">Daten importiert</string>
+    <string name="backup_error_io">Datei konnte nicht gelesen oder geschrieben werden</string>
+    <string name="backup_error_not_a_backup">Diese Datei ist keine Tacca-Sicherung</string>
+    <string name="backup_error_newer">Diese Sicherung stammt von einer neueren Version von Tacca. Aktualisiere die App und versuche es erneut.</string>
+    <string name="backup_error_invalid">Die Sicherungsdatei ist beschädigt oder unvollständig</string>
+    <string name="settings_about">Über</string>
+    <string name="settings_version">Version %1$s</string>
+</resources>
