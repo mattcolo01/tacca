@@ -36,6 +36,9 @@ import it.matteocolombo.tacca.ui.theme.TaccaType
 @Composable
 fun TaccaBottomBar(selected: TopLevelDestination?, onSelect: (TopLevelDestination) -> Unit, modifier: Modifier = Modifier) {
     val c = TaccaTheme.colors
+    // "nav_sections" was previously defined but unused; used here as a `paneTitle` (rather than a
+    // `contentDescription`) since this bar is a navigation section switcher, not a single
+    // interactive element that a plain description would fit.
     val sectionsLabel = stringResource(R.string.nav_sections)
     Column(
         modifier.fillMaxWidth().background(c.surface).navigationBarsPadding()

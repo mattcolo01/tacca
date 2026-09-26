@@ -1,5 +1,6 @@
 package it.matteocolombo.tacca.ui.methods
 
+import android.content.res.Resources
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -38,6 +39,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import it.matteocolombo.tacca.R
 import it.matteocolombo.tacca.domain.Method
 import it.matteocolombo.tacca.domain.MethodIcon
+import it.matteocolombo.tacca.domain.TextMatch
 import it.matteocolombo.tacca.domain.Tint
 import it.matteocolombo.tacca.ui.components.ConfirmDialog
 import it.matteocolombo.tacca.ui.components.DashedButton
@@ -52,15 +54,27 @@ import it.matteocolombo.tacca.ui.icons.drawableRes
 import it.matteocolombo.tacca.ui.theme.TaccaTheme
 import it.matteocolombo.tacca.ui.theme.TaccaType
 
+/**
+ * The names [MethodSheet] should treat as duplicates: [state]'s own custom names plus every
+ * built-in method's localized display name (the view model itself has no [Resources] to localize
+ * with), *except* the built-in name of the method currently being edited, if any. Without that
+ * exclusion, editing a renamed built-in (e.g. a V60 with a custom name "Hario") and typing its
+ * own built-in name back ("V60") would be flagged as a duplicate even though saving it actually
+ * succeeds -- [customNameFor] treats that as reverting to the built-in default, not a collision.
+ */
+fun sheetExistingNames(state: MethodsUiState, res: Resources): Set<String> {
+    val editingBuiltIn = (state.sheet as? MethodSheetState.Edit)?.method?.builtIn
+    val ownBuiltInName = editingBuiltIn?.let { TextMatch.normalize(res.getString(it.nameRes())) }
+    return state.existingNames + builtInMethodDisplayNames(res) - setOfNotNull(ownBuiltInName)
+}
+
 @Composable
 fun MethodsEntry(onShowOnHome: () -> Unit, modifier: Modifier = Modifier) {
     val vm: MethodsViewModel = viewModel(factory = MethodsViewModel.Factory)
     val state by vm.uiState.collectAsStateWithLifecycle()
     val res = LocalResources.current
     MethodsScreen(
-        // The view model has no Resources to localize built-in names with, so the built-in
-        // display names (e.g. "V60") are merged in here before the sheet's duplicate check sees them.
-        state = state.copy(existingNames = state.existingNames + builtInMethodDisplayNames(res)),
+        state = state.copy(existingNames = sheetExistingNames(state, res)),
         onMethodClick = { vm.showOnHome(it.id); onShowOnHome() },
         onMethodEdit = vm::openEdit,
         onAdd = vm::openNew,

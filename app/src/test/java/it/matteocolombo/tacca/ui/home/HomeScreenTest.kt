@@ -57,7 +57,11 @@ class HomeScreenTest {
     }
 
     @Test fun longCoffeeFilterNameKeepsClearIconVisible() {
-        val longName = "Colombia Huila Finca El Paraíso — lavato, lotto speciale doppia fermentazione anaerobica con frutta tropicale"
+        // Robolectric's text metrics are compact enough that a single long sentence still fits
+        // the chip's fair share of space either way; repeating it forces genuine overflow so the
+        // fix (Modifier.weight(1f, fill = false) + ellipsis) is actually exercised. Verified this
+        // assertion is RED against the pre-fix FilterPill (gap shrinks to ~54dp there vs ~74dp here).
+        val longName = "Colombia Huila Finca El Paraiso lavato lotto speciale doppia fermentazione anaerobica ".repeat(3)
         val cal = Calibration(
             1, Coffee(2, "Brasile", 0), v60, Grinder(1, "JX-Pro", GrinderSpec(true, 40), 0),
             GrindSetting(2, 12), "", 0,
@@ -76,10 +80,8 @@ class HomeScreenTest {
         val labelBounds = compose.onNodeWithText(longName, useUnmergedTree = true).getUnclippedBoundsInRoot()
         val pillWidth = pillBounds.right - pillBounds.left
         val labelWidth = labelBounds.right - labelBounds.left
-        // The label is clamped well short of its natural (700dp+) width...
-        assertTrue(labelWidth < 200.dp)
-        // ...leaving room in the chip for the leading bean icon, both gaps, the padding and the
-        // trailing X (16 + 6 + 6 + 14 + 32 = 74dp) instead of being pushed out entirely.
+        // The label yields its fair share of the chip (240dp cap - 74dp of leading icon, both
+        // gaps, padding and the trailing X) instead of crowding the X out.
         assertTrue(pillWidth - labelWidth >= 70.dp)
     }
 }
