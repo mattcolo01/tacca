@@ -1,0 +1,98 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Coffees.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Caffè",
+      "w": 390,
+      "x": 0,
+      "y": 964
+    },
+    "Detail.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Dettaglio calibrazione",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "Grinders.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Macine",
+      "w": 390,
+      "x": 940,
+      "y": 964
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Calibrazioni (home)",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "Methods.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Metodi",
+      "w": 390,
+      "x": 470,
+      "y": 964
+    },
+    "NewCalibration.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Nuova calibrazione",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "NewGrinder.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "radius": 44,
+      "title": "Nuova macina",
+      "w": 390,
+      "x": 1410,
+      "y": 964
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-25T10:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "title": {
+      "kind": "title1",
+      "maxW": 1800,
+      "text": "Tacca — la tua macinatura, sempre a portata",
+      "w": 240,
+      "x": 0,
+      "y": -260
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Detail.dc.html",
+    "NewCalibration.dc.html",
+    "Coffees.dc.html",
+    "Methods.dc.html",
+    "Grinders.dc.html",
+    "NewGrinder.dc.html"
+  ],
+  "pages": [],
+  "title": "Tacca — app calibrazione macina"
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Tacca — Caffè</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:Figtree,'Helvetica Neue',sans-serif;background:#F6F0E8;color:#2A1C13}
+a{color:#2A1C13}a:hover{color:#B4552E}
+button,input{font-family:inherit}
+input::placeholder{color:#8A7666}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #F6F0E8; color: #2A1C13; font-family: Figtree, 'Helvetica Neue', sans-serif">
+
+<div style="display: flex; flex-direction: column; gap: 18px; padding: 56px 20px 0 20px">
+  <div style="display: flex; align-items: flex-end; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-family: 'Bricolage Grotesque', Georgia, serif; font-weight: 700; font-size: 34px; line-height: 1.05; letter-spacing: -0.02em">Caffè</h1>
+      <span style="font-size: 14px; color: #6F5B4C">4 caffè in dispensa</span>
+    </div>
+    <button aria-label="Aggiungi caffè" style="width: 44px; height: 44px; border-radius: 16px; border: 0; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+
+  <div style="height: 48px; border-radius: 16px; background: #FFFCF8; border: 1px solid #EADFD3; display: flex; align-items: center; gap: 10px; padding: 0 14px; box-sizing: border-box">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6F5B4C" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>
+    <label for="q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Cerca un caffè</label>
+    <input id="q" type="search" placeholder="Cerca per nome, origine…" style="flex-grow: 1; border: 0; outline: none; background: transparent; font-size: 15px; color: #2A1C13; min-width: 0">
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <sc-for list="{{coffees}}" as="c" hint-placeholder-count="4">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 14px; border-radius: 22px; background: #FFFCF8; border: 1px solid #EADFD3; text-decoration: none; color: #2A1C13">
+        <span style="width: 48px; height: 48px; border-radius: 16px; flex-shrink: 0; background: {{c.tint}}; display: flex; align-items: center; justify-content: center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2A1C13" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6" ry="8.5" transform="rotate(35 12 12)"/><path d="M8.6 17.4c2-2.2 1.6-4.6 3.4-6s3-3.4 3.4-5.8"/></svg>
+        </span>
+        <span style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1; min-width: 0">
+          <span style="font-size: 15px; font-weight: 700; line-height: 1.25; text-wrap: pretty">{{c.name}}</span>
+          <span style="font-size: 13px; color: #6F5B4C">{{c.sub}}</span>
+        </span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6F5B4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </sc-for>
+  </div>
+</div>
+
+<nav aria-label="Sezioni" style="position: absolute; left: 0; right: 0; bottom: 0; height: 88px; box-sizing: border-box; padding: 8px 12px 22px 12px; background: #FFFCF8; border-top: 1px solid #EADFD3; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px">
+  <a href="Main.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #6F5B4C; font-size: 11px; font-weight: 600">
+    <span style="width: 52px; height: 30px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V6"/><path d="M12 12l3.5-3.5"/></svg></span>
+    <span>Calibrazioni</span>
+  </a>
+  <a href="Coffees.dc.html" aria-current="page" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #2A1C13; font-size: 11px; font-weight: 700">
+    <span style="width: 52px; height: 30px; border-radius: 999px; background: #F4DCCD; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><ellipse cx="12" cy="12" rx="6" ry="8.5" transform="rotate(35 12 12)"/><path d="M8.6 17.4c2-2.2 1.6-4.6 3.4-6s3-3.4 3.4-5.8"/></svg></span>
+    <span>Caffè</span>
+  </a>
+  <a href="Methods.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #6F5B4C; font-size: 11px; font-weight: 600">
+    <span style="width: 52px; height: 30px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4.2 6 7.4 6 11a6 6 0 0 1-12 0c0-3.6 3-6.8 6-11z"/></svg></span>
+    <span>Metodi</span>
+  </a>
+  <a href="Grinders.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #6F5B4C; font-size: 11px; font-weight: 600">
+    <span style="width: 52px; height: 30px; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11h8v9a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1z"/><path d="M7 11h10"/><path d="M12 11V6h5"/><circle cx="18.5" cy="6" r="1.5"/><path d="M8 15h8"/></svg></span>
+    <span>Macine</span>
+  </a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#B4552E","options":["#B4552E","#2F6B5A","#3D5A8A","#8A4B6E"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#B4552E',
+      coffees: [
+        { name: 'Etiopia Yirgacheffe Kochere — lavato', sub: '3 calibrazioni · V60, AeroPress, French press', tint: '#D7E3EE' },
+        { name: 'Brasile Cerrado Mineiro — naturale', sub: '2 calibrazioni · Moka, Espresso', tint: '#F7DCCB' },
+        { name: 'Miscela Casa 70/30 Arabica e Robusta', sub: '2 calibrazioni · Moka, Espresso', tint: '#F2E4BC' },
+        { name: 'Colombia Huila Finca El Paraíso — lavato', sub: 'Ancora nessuna calibrazione', tint: '#DCE6D1' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

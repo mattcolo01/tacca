@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Tacca — Nuova macina</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;font-family:Figtree,'Helvetica Neue',sans-serif;background:#F6F0E8;color:#2A1C13}
+a{color:#2A1C13}a:hover{color:#B4552E}
+button,input{font-family:inherit}
+input::placeholder{color:#8A7666}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; box-sizing: border-box; position: relative; overflow: hidden; background: #F6F0E8; color: #2A1C13; font-family: Figtree, 'Helvetica Neue', sans-serif; display: flex; flex-direction: column; gap: 20px; padding: 52px 20px 24px 20px">
+
+  <div style="display: flex; align-items: center; justify-content: space-between">
+    <h1 style="margin: 0; font-family: 'Bricolage Grotesque', Georgia, serif; font-weight: 700; font-size: 28px; letter-spacing: -0.02em">Nuova macina</h1>
+    <a href="Grinders.dc.html" aria-label="Chiudi" style="width: 44px; height: 44px; border-radius: 16px; border: 1px solid #EADFD3; background: #FFFCF8; display: flex; align-items: center; justify-content: center; color: #2A1C13">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </a>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <label for="gname" style="padding-left: 4px; font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #6F5B4C">Nome</label>
+    <input id="gname" type="text" placeholder="Es. il macinino della nonna" style="height: 52px; border-radius: 16px; border: 1.5px solid #EADFD3; background: #FFFCF8; padding: 0 16px; font-size: 16px; color: #2A1C13; box-sizing: border-box; outline: none">
+  </div>
+
+  <div style="background: #FFFCF8; border: 1px solid #EADFD3; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; align-items: center; gap: 14px">
+      <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1">
+        <span id="multiLbl" style="font-size: 15px; font-weight: 700">Si regola con più giri</span>
+        <span style="font-size: 13px; line-height: 1.35; color: #6F5B4C">Attivalo se la ghiera fa più di un giro completo tra fine e grosso.</span>
+      </span>
+      <button onClick="{{toggle}}" aria-pressed="{{multi}}" aria-labelledby="multiLbl" style="width: 56px; height: 34px; border-radius: 999px; border: 0; padding: 3px; flex-shrink: 0; cursor: pointer; display: flex; justify-content: {{knobSide}}; background: {{trackBg}}">
+        <span style="width: 28px; height: 28px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 2px 6px rgba(42,28,19,0.25)"></span>
+      </button>
+    </div>
+    <div style="height: 1px; background: #EADFD3"></div>
+    <div style="display: flex; align-items: center; gap: 14px">
+      <span style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1">
+        <span style="font-size: 15px; font-weight: 700">{{stepLabel}}</span>
+        <span style="font-size: 13px; color: #6F5B4C">Opzionale · aiuta a controllare i valori</span>
+      </span>
+      <div style="display: flex; align-items: center; gap: 6px">
+        <button onClick="{{down}}" aria-label="Diminuisci" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #F6F0E8; color: #2A1C13; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 12h12"/></svg></button>
+        <span style="min-width: 44px; text-align: center; font-family: 'Bricolage Grotesque', Georgia, serif; font-weight: 700; font-size: 26px">{{per}}</span>
+        <button onClick="{{up}}" aria-label="Aumenta" style="width: 44px; height: 44px; border-radius: 14px; border: 0; background: #F6F0E8; color: #2A1C13; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 6v12M6 12h12"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-radius: 22px; background: #F4DCCD; padding: 16px; display: flex; align-items: center; gap: 14px">
+    <span style="width: 44px; height: 44px; border-radius: 16px; background: #FFFCF8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: {{accent}}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5V6"/><path d="M12 12l3.5-3.5"/></svg>
+    </span>
+    <span style="display: flex; flex-direction: column; gap: 2px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #5E4A3C">Le calibrazioni si leggeranno così</span>
+      <span style="font-family: 'Bricolage Grotesque', Georgia, serif; font-weight: 700; font-size: 20px">{{example}}</span>
+    </span>
+  </div>
+
+  <div style="flex-grow: 1"></div>
+
+  <a href="Grinders.dc.html" style="height: 56px; border-radius: 20px; background: {{accent}}; color: #FFFFFF; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; font-weight: 700; box-shadow: 0 12px 24px -12px rgba(90,40,15,0.55)">Salva macina</a>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#B4552E","options":["#B4552E","#2F6B5A","#3D5A8A","#8A4B6E"]},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { multi: true, per: 30 };
+  }
+  renderVals() {
+    var accent = this.props.accent ?? '#B4552E';
+    var s = this.state, self = this;
+    return {
+      accent: accent,
+      multi: s.multi,
+      per: s.per,
+      trackBg: s.multi ? accent : '#D9C9B8',
+      knobSide: s.multi ? 'flex-end' : 'flex-start',
+      stepLabel: s.multi ? 'Step per giro' : 'Step totali',
+      example: s.multi ? '2 giri + 12 step' : '12 step',
+      toggle: function () { self.setState({ multi: !s.multi }); },
+      down: function () { self.setState({ per: Math.max(1, s.per - 1) }); },
+      up: function () { self.setState({ per: s.per + 1 }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
