@@ -1,6 +1,9 @@
 package it.matteocolombo.tacca
 
 import android.content.Context
+import it.matteocolombo.tacca.data.backup.BackupService
+import it.matteocolombo.tacca.data.backup.ContentResolverDocumentStreams
+import it.matteocolombo.tacca.data.backup.DocumentStreams
 import it.matteocolombo.tacca.data.db.TaccaDatabase
 import it.matteocolombo.tacca.data.repo.CalibrationRepository
 import it.matteocolombo.tacca.data.repo.CoffeeRepository
@@ -22,4 +25,6 @@ class AppContainer(context: Context) {
     val grinders: GrinderRepository by lazy { RoomGrinderRepository(database) }
     val calibrations: CalibrationRepository by lazy { RoomCalibrationRepository(database) }
     val homeFilter = HomeFilterStore()
+    val backup: BackupService by lazy { BackupService(database) }
+    val documents: DocumentStreams by lazy { ContentResolverDocumentStreams(appContext.contentResolver) }
 }
