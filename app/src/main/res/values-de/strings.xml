@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="nav_sections">Bereiche</string>
-    <string name="nav_calibrations">Einstellungen</string>
+    <string name="nav_calibrations">Kalibrierungen</string>
     <string name="nav_coffees">Kaffees</string>
     <string name="nav_methods">Zubereitungen</string>
     <string name="nav_grinders">Mühlen</string>
@@ -14,7 +14,7 @@
     <string name="action_edit">Bearbeiten</string>
     <string name="action_search">Suchen</string>
     <string name="action_clear_search">Suche löschen</string>
-    <string name="action_settings">Optionen</string>
+    <string name="action_settings">Einstellungen</string>
     <string name="action_more">Weitere Optionen</string>
     <string name="action_new">Neu</string>
     <string name="action_show_all">Alle anzeigen (%1$d)</string>
@@ -31,10 +31,10 @@
     <string name="unit_turns">Umdrehungen</string>
     <string name="unit_steps">Klicks</string>
     <plurals name="calibrations_count">
-        <item quantity="one">%d Einstellung</item>
-        <item quantity="other">%d Einstellungen</item>
+        <item quantity="one">%d Kalibrierung</item>
+        <item quantity="other">%d Kalibrierungen</item>
     </plurals>
-    <string name="calibrations_none">Noch keine Einstellungen</string>
+    <string name="calibrations_none">Noch keine Kalibrierungen</string>
     <plurals name="coffees_count">
         <item quantity="one">%d Kaffee</item>
         <item quantity="other">%d Kaffees</item>
@@ -54,15 +54,15 @@
     <string name="tint_sage">Salbei</string>
     <string name="tint_lilac">Lila</string>
 
-    <string name="home_title">Einstellungen</string>
+    <string name="home_title">Kalibrierungen</string>
     <string name="home_filter_all">Alle</string>
     <string name="home_search_hint">Kaffee, Zubereitung, Mühle suchen</string>
-    <string name="home_new_calibration">Neue Einstellung</string>
+    <string name="home_new_calibration">Neue Kalibrierung</string>
     <string name="home_remove_coffee_filter">Kaffeefilter entfernen</string>
-    <string name="home_empty_title">Noch keine Einstellungen</string>
-    <string name="home_empty_body">Speichere die Einstellung, die für einen Kaffee, eine Zubereitung und eine Mühle passt.</string>
+    <string name="home_empty_title">Noch keine Kalibrierungen</string>
+    <string name="home_empty_body">Speichere die Kalibrierung, die für einen Kaffee, eine Zubereitung und eine Mühle passt.</string>
     <string name="home_empty_setup">Deinen ersten Kaffee und deine erste Mühle fügst du unterwegs hinzu.</string>
-    <string name="home_no_results">Keine Einstellung passt</string>
+    <string name="home_no_results">Keine Kalibrierung passt</string>
     <string name="home_clear_filters">Filter zurücksetzen</string>
 
     <string name="detail_step_zero">Nahe null</string>
@@ -80,11 +80,11 @@
     </plurals>
     <string name="detail_notes">Notizen</string>
     <string name="detail_same_coffee">Gleicher Kaffee</string>
-    <string name="detail_not_found">Diese Einstellung gibt es nicht mehr.</string>
+    <string name="detail_not_found">Diese Kalibrierung gibt es nicht mehr.</string>
     <string name="detail_dial_description">Rad: %1$s</string>
 
-    <string name="editor_title_new">Neue Einstellung</string>
-    <string name="editor_title_edit">Einstellung bearbeiten</string>
+    <string name="editor_title_new">Neue Kalibrierung</string>
+    <string name="editor_title_edit">Kalibrierung bearbeiten</string>
     <string name="editor_section_coffee">Kaffee</string>
     <string name="editor_section_method">Zubereitung</string>
     <string name="editor_section_grinder">Mühle</string>
@@ -103,9 +103,9 @@
     <string name="editor_fewer_steps">Weniger Klicks</string>
     <string name="editor_more_steps">Mehr Klicks</string>
     <string name="editor_save_summary">Speichern · %1$s</string>
-    <string name="editor_replaces">Ersetzt die aktuelle Einstellung (%1$s)</string>
-    <string name="editor_delete">Einstellung löschen</string>
-    <string name="editor_delete_confirm">Diese Einstellung löschen?</string>
+    <string name="editor_replaces">Ersetzt die aktuelle Kalibrierung (%1$s)</string>
+    <string name="editor_delete">Kalibrierung löschen</string>
+    <string name="editor_delete_confirm">Diese Kalibrierung löschen?</string>
     <string name="editor_no_coffee">Füge einen Kaffee hinzu, um fortzufahren</string>
     <string name="editor_no_grinder">Füge eine Mühle hinzu, um fortzufahren</string>
 
@@ -162,21 +162,21 @@
     <string name="grinder_steps_optional">Optional · hilft, die Werte zu überprüfen</string>
     <string name="grinder_steps_not_set">Nicht festgelegt</string>
     <string name="grinder_steps_unknown_action">Ich weiß es nicht</string>
-    <string name="grinder_preview_label">Einstellungen werden so angezeigt</string>
+    <string name="grinder_preview_label">Kalibrierungen werden so angezeigt</string>
     <plurals name="grinder_out_of_range">
-        <item quantity="one">%d Einstellung liegt außerhalb des neuen Bereichs.</item>
-        <item quantity="other">%d Einstellungen liegen außerhalb des neuen Bereichs.</item>
+        <item quantity="one">%d Kalibrierung liegt außerhalb des neuen Bereichs</item>
+        <item quantity="other">%d Kalibrierungen liegen außerhalb des neuen Bereichs</item>
     </plurals>
     <string name="grinder_delete">Mühle löschen</string>
 
     <string name="confirm_delete_title">„%1$s“ löschen?</string>
     <plurals name="confirm_delete_cascade_body">
-        <item quantity="one">%d Einstellung wird ebenfalls gelöscht.</item>
-        <item quantity="other">%d Einstellungen werden ebenfalls gelöscht.</item>
+        <item quantity="one">%d Kalibrierung wird ebenfalls gelöscht.</item>
+        <item quantity="other">%d Kalibrierungen werden ebenfalls gelöscht.</item>
     </plurals>
     <string name="confirm_delete_no_cascade">Es wird nichts anderes gelöscht.</string>
 
-    <string name="settings_title">Optionen</string>
+    <string name="settings_title">Einstellungen</string>
     <string name="settings_accent">Akzentfarbe</string>
     <string name="accent_terracotta">Terrakotta</string>
     <string name="accent_pine">Kiefer</string>
@@ -190,7 +190,7 @@
     <string name="language_system">Systemsprache</string>
     <string name="settings_data">Daten</string>
     <string name="settings_export">Daten exportieren</string>
-    <string name="settings_export_body">Speichert alle Kaffees, Zubereitungen, Mühlen und Einstellungen in einer Datei.</string>
+    <string name="settings_export_body">Speichert alle Kaffees, Zubereitungen, Mühlen und Kalibrierungen in einer Datei.</string>
     <string name="settings_import">Daten importieren</string>
     <string name="settings_import_body">Ersetzt alle Daten durch eine Sicherungsdatei.</string>
     <string name="import_confirm_title">Alle Daten ersetzen?</string>

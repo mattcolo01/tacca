@@ -164,7 +164,7 @@
     <string name="grinder_name_hint">Ex. le moulin de grand-mère</string>
     <string name="grinder_duplicate_hint">Un moulin portant ce nom existe déjà</string>
     <string name="grinder_multi_title">S\'ajuste sur plusieurs tours</string>
-    <string name="grinder_multi_body">Activez-le si la molette fait plus d\'un tour complet entre fin et gros.</string>
+    <string name="grinder_multi_body">Activez-le si la molette fait plus d\'un tour complet entre fin et grossier.</string>
     <string name="grinder_steps_per_turn">Crans par tour</string>
     <string name="grinder_steps_total">Crans au total</string>
     <string name="grinder_steps_optional">Facultatif · aide à vérifier les valeurs</string>
@@ -178,7 +178,7 @@
     </plurals>
     <string name="grinder_delete">Supprimer le moulin</string>
 
-    <string name="confirm_delete_title">Supprimer “%1$s”?</string>
+    <string name="confirm_delete_title">Supprimer “%1$s” ?</string>
     <plurals name="confirm_delete_cascade_body">
         <item quantity="one">%d réglage sera également supprimé.</item>
         <item quantity="many">%d réglages seront également supprimés.</item>
