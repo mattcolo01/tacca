@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
@@ -119,8 +120,8 @@ fun GrinderEditorScreen(
                             onCheckedChange = onMultiTurnChange,
                             modifier = Modifier.semantics { contentDescription = multiTitle },
                             colors = SwitchDefaults.colors(
-                                checkedTrackColor = c.accent, checkedThumbColor = Color.White,
-                                uncheckedTrackColor = c.dashed, uncheckedThumbColor = Color.White, uncheckedBorderColor = Color.Transparent,
+                                checkedTrackColor = c.accent, checkedThumbColor = c.onAccent,
+                                uncheckedTrackColor = c.dashed, uncheckedThumbColor = c.onAccent, uncheckedBorderColor = Color.Transparent,
                             ),
                         )
                     }
@@ -133,7 +134,7 @@ fun GrinderEditorScreen(
                             )
                             Text(stringResource(R.string.grinder_steps_optional), style = TaccaType.bodySmall, color = c.textMuted)
                             if (state.stepsPerTurn != null) {
-                                TextButton(onClick = onStepsUnknown, contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)) {
+                                TextButton(onClick = onStepsUnknown, contentPadding = PaddingValues(0.dp)) {
                                     Text(stringResource(R.string.grinder_steps_unknown_action), style = TaccaType.label, color = c.accentText)
                                 }
                             }
