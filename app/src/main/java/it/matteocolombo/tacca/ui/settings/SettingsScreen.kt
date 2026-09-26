@@ -96,16 +96,18 @@ fun SettingsEntry(onBack: () -> Unit) {
     }
     val versionName = remember { context.packageManager.getPackageInfo(context.packageName, 0).versionName.orEmpty() }
 
-    LaunchedEffect(state.message) {
-        val text = when (val m = state.message) {
-            null -> return@LaunchedEffect
-            SettingsMessage.Exported -> res.getString(R.string.export_done)
-            SettingsMessage.Imported -> res.getString(R.string.import_done)
-            is SettingsMessage.Failed -> res.getString(m.error.messageRes())
-        }
-        vm.consumeMessage()
-        snackbar.showSnackbar(text)
-    }
+    SettingsMessageEffect(
+        message = state.message,
+        snackbar = snackbar,
+        textFor = { m ->
+            when (m) {
+                SettingsMessage.Exported -> res.getString(R.string.export_done)
+                SettingsMessage.Imported -> res.getString(R.string.import_done)
+                is SettingsMessage.Failed -> res.getString(m.error.messageRes())
+            }
+        },
+        onConsumed = vm::consumeMessage,
+    )
 
     Scaffold(snackbarHost = { SnackbarHost(snackbar) }, containerColor = TaccaTheme.colors.background) { inner ->
         Box(Modifier.padding(inner)) {
@@ -139,6 +141,27 @@ fun SettingsEntry(onBack: () -> Unit) {
     }
     if (languageDialog) {
         LanguageDialog(current = AppLanguage.current(), onPick = { AppLanguage.set(it); languageDialog = false }, onDismiss = { languageDialog = false })
+    }
+}
+
+/**
+ * Shows [message] as a snackbar and only then consumes it. Order matters: this composable is
+ * keyed on [message], so once [onConsumed] flips it to null the effect is cancelled and
+ * restarted with the new (null) key. Calling [onConsumed] before `showSnackbar` returns would
+ * race that restart and could cut the snackbar off before it is shown; awaiting the snackbar
+ * first (it suspends until dismissed) and consuming after is what makes the restart a no-op.
+ */
+@Composable
+internal fun SettingsMessageEffect(
+    message: SettingsMessage?,
+    snackbar: SnackbarHostState,
+    textFor: (SettingsMessage) -> String,
+    onConsumed: () -> Unit,
+) {
+    LaunchedEffect(message) {
+        val text = message?.let(textFor) ?: return@LaunchedEffect
+        snackbar.showSnackbar(text)
+        onConsumed()
     }
 }
 
