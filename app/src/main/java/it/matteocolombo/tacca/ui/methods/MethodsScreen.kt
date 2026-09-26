@@ -31,6 +31,7 @@ import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -44,6 +45,7 @@ import it.matteocolombo.tacca.ui.components.ScreenHeader
 import it.matteocolombo.tacca.ui.components.SquareIconButton
 import it.matteocolombo.tacca.ui.components.cascadeDeleteText
 import it.matteocolombo.tacca.ui.components.topLevelContentPadding
+import it.matteocolombo.tacca.ui.format.builtInMethodDisplayNames
 import it.matteocolombo.tacca.ui.format.methodName
 import it.matteocolombo.tacca.ui.format.nameRes
 import it.matteocolombo.tacca.ui.icons.drawableRes
@@ -56,7 +58,9 @@ fun MethodsEntry(onShowOnHome: () -> Unit, modifier: Modifier = Modifier) {
     val state by vm.uiState.collectAsStateWithLifecycle()
     val res = LocalResources.current
     MethodsScreen(
-        state = state,
+        // The view model has no Resources to localize built-in names with, so the built-in
+        // display names (e.g. "V60") are merged in here before the sheet's duplicate check sees them.
+        state = state.copy(existingNames = state.existingNames + builtInMethodDisplayNames(res)),
         onMethodClick = { vm.showOnHome(it.id); onShowOnHome() },
         onMethodEdit = vm::openEdit,
         onAdd = vm::openNew,
@@ -113,7 +117,7 @@ fun MethodsScreen(
                     SquareIconButton(R.drawable.ic_more, stringResource(R.string.action_more), { onMethodEdit(item.method) })
                 }
                 Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-                    Text(methodName(item.method), style = TaccaType.cardTitle, color = c.text, maxLines = 1)
+                    Text(methodName(item.method), style = TaccaType.cardTitle, color = c.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
                     Text(
                         if (item.calibrationCount == 0) stringResource(R.string.calibrations_none)
                         else pluralStringResource(R.plurals.calibrations_count, item.calibrationCount, item.calibrationCount),

@@ -20,6 +20,7 @@ object BackupCodec {
     private val json = Json {
         prettyPrint = true
         ignoreUnknownKeys = true
+        encodeDefaults = true
     }
 
     fun encode(file: BackupFile): String = json.encodeToString(BackupFile.serializer(), file)

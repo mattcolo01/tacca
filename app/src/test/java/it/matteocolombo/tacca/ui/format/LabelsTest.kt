@@ -54,4 +54,15 @@ class LabelsTest {
         assertEquals("Multi-turn · steps unknown", grinderKindText(res, GrinderSpec(true, null)))
         assertEquals("Single turn · steps unknown", grinderKindText(res, GrinderSpec(false, null)))
     }
+
+    @Test fun builtInDisplayNamesAreNormalizedAndCoverEveryBuiltIn() {
+        val names = builtInMethodDisplayNames(res)
+        assertEquals(BuiltInMethod.entries.size, names.size)
+        assertEquals(setOf("moka", "espresso", "v60", "french press", "aeropress"), names)
+    }
+
+    @Test @Config(qualifiers = "es")
+    fun builtInDisplayNamesFollowTheAppLanguage() {
+        assertEquals(setOf("moka", "espresso", "v60", "prensa francesa", "aeropress"), builtInMethodDisplayNames(res))
+    }
 }

@@ -13,6 +13,7 @@ import it.matteocolombo.tacca.domain.GrindSetting
 import it.matteocolombo.tacca.domain.GrinderSpec
 import it.matteocolombo.tacca.domain.Method
 import it.matteocolombo.tacca.domain.MethodIcon
+import it.matteocolombo.tacca.domain.TextMatch
 import it.matteocolombo.tacca.domain.ThemeMode
 import it.matteocolombo.tacca.domain.Tint
 
@@ -40,6 +41,13 @@ fun methodName(res: Resources, method: Method): String =
 
 @Composable @ReadOnlyComposable
 fun methodName(method: Method): String = methodName(LocalResources.current, method)
+
+/** Normalized localized display names of all built-in methods, e.g. "v60" for [BuiltInMethod.V60]. */
+fun builtInMethodDisplayNames(res: Resources): Set<String> =
+    BuiltInMethod.entries.map { TextMatch.normalize(res.getString(it.nameRes())) }.toSet()
+
+@Composable @ReadOnlyComposable
+fun builtInMethodDisplayNames(): Set<String> = builtInMethodDisplayNames(LocalResources.current)
 
 fun grinderKindText(res: Resources, spec: GrinderSpec): String {
     val n = spec.stepsPerTurn

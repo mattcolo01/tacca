@@ -24,8 +24,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.paneTitle
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import it.matteocolombo.tacca.R
 import it.matteocolombo.tacca.ui.navigation.TopLevelDestination
 import it.matteocolombo.tacca.ui.theme.TaccaTheme
 import it.matteocolombo.tacca.ui.theme.TaccaType
@@ -33,7 +36,11 @@ import it.matteocolombo.tacca.ui.theme.TaccaType
 @Composable
 fun TaccaBottomBar(selected: TopLevelDestination?, onSelect: (TopLevelDestination) -> Unit, modifier: Modifier = Modifier) {
     val c = TaccaTheme.colors
-    Column(modifier.fillMaxWidth().background(c.surface).navigationBarsPadding()) {
+    val sectionsLabel = stringResource(R.string.nav_sections)
+    Column(
+        modifier.fillMaxWidth().background(c.surface).navigationBarsPadding()
+            .semantics { paneTitle = sectionsLabel },
+    ) {
         HorizontalDivider(thickness = 1.dp, color = c.outline)
         Row(
             Modifier.fillMaxWidth().height(66.dp).padding(horizontal = 12.dp).selectableGroup(),

@@ -15,6 +15,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -22,8 +23,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
@@ -76,7 +80,15 @@ fun TaccaTextField(
 }
 
 @Composable
-fun SearchField(query: String, onQueryChange: (String) -> Unit, placeholder: String, label: String, modifier: Modifier = Modifier) {
+fun SearchField(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    placeholder: String,
+    label: String,
+    modifier: Modifier = Modifier,
+    focusRequester: FocusRequester? = null,
+    onClear: (() -> Unit)? = null,
+) {
     val c = TaccaTheme.colors
     val shape = RoundedCornerShape(16.dp)
     Row(
@@ -94,8 +106,15 @@ fun SearchField(query: String, onQueryChange: (String) -> Unit, placeholder: Str
                 textStyle = TaccaType.body.copy(color = c.text),
                 cursorBrush = SolidColor(c.accent),
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                modifier = Modifier.fillMaxWidth().semantics { contentDescription = label },
+                modifier = Modifier.fillMaxWidth().semantics { contentDescription = label }
+                    .then(if (focusRequester != null) Modifier.focusRequester(focusRequester) else Modifier),
             )
+        }
+        if (onClear != null && query.isNotEmpty()) {
+            val clearLabel = stringResource(R.string.action_clear_search)
+            IconButton(onClick = onClear, modifier = Modifier.size(48.dp).semantics { contentDescription = clearLabel }) {
+                Icon(painterResource(R.drawable.ic_close), contentDescription = null, tint = c.textMuted, modifier = Modifier.size(16.dp))
+            }
         }
     }
 }

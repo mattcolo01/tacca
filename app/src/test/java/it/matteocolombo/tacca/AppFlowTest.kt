@@ -4,7 +4,9 @@ import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasContentDescription
+import androidx.compose.ui.test.hasSetTextAction
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.test.isSelected
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
@@ -25,13 +27,23 @@ import org.robolectric.annotation.Config
 class AppFlowTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
 
+    /**
+     * `hasText(name)` also matches the text just typed into the still-open editor's Name field,
+     * so a naive wait passes immediately while Room's save is still in flight. Wait for the
+     * editor to close first, then for a *settled* node bearing that text (not the editable one).
+     */
+    private fun waitForSavedText(name: String) {
+        compose.waitUntilDoesNotExist(hasContentDescription("Name"), 5_000)
+        compose.waitUntilAtLeastOneExists(hasText(name) and !hasSetTextAction(), 5_000)
+    }
+
     @Test fun createGrinderCoffeeAndCalibration() {
         // Grinder
         compose.onNodeWithText("Grinders").performClick()
         compose.onNodeWithText("Add grinder").performClick()
         compose.onNodeWithContentDescription("Name").performTextInput("JX-Pro")
         compose.onNodeWithText("Save").performClick()
-        compose.waitUntilAtLeastOneExists(hasText("JX-Pro"), 5_000)
+        waitForSavedText("JX-Pro")
 
         // Calibration with an inline new coffee
         compose.onNodeWithText("Calibrations").performClick()
@@ -40,7 +52,7 @@ class AppFlowTest {
         compose.onAllNodesWithText("New").onFirst().performClick()
         compose.onNodeWithContentDescription("Name").performTextInput("Brasile")
         compose.onNodeWithText("Save").performClick()
-        compose.waitUntilAtLeastOneExists(hasText("Brasile"), 5_000)
+        waitForSavedText("Brasile")
         compose.onNodeWithText("V60").performClick()
         repeat(3) { compose.onNodeWithContentDescription("More steps").performScrollTo().performClick() }
         compose.onNodeWithText("Save · 3 steps").performClick()
@@ -59,7 +71,7 @@ class AppFlowTest {
         compose.onNodeWithText("Add grinder").performClick()
         compose.onNodeWithContentDescription("Name").performTextInput("Grinder A")
         compose.onNodeWithText("Save").performClick()
-        compose.waitUntilAtLeastOneExists(hasText("Grinder A"), 5_000)
+        waitForSavedText("Grinder A")
 
         compose.onNodeWithText("Calibrations").performClick()
         compose.waitUntilAtLeastOneExists(hasText("New calibration"), 5_000)
@@ -67,7 +79,7 @@ class AppFlowTest {
         compose.onAllNodesWithText("New").onFirst().performClick()
         compose.onNodeWithContentDescription("Name").performTextInput("Etiopia")
         compose.onNodeWithText("Save").performClick()
-        compose.waitUntilAtLeastOneExists(hasText("Etiopia"), 5_000)
+        waitForSavedText("Etiopia")
 
         compose.onNodeWithText("Grinder A").assertIsSelected()
 
@@ -77,7 +89,7 @@ class AppFlowTest {
         compose.onNodeWithText("Save").performClick()
 
         // Back in the editor, the newly created grinder is the one selected, not the pre-existing one.
-        compose.waitUntilAtLeastOneExists(hasText("Grinder B"), 5_000)
+        compose.waitUntilExactlyOneExists(hasText("Grinder B") and isSelected(), 5_000)
         compose.onNodeWithText("Grinder B").assertIsSelected()
     }
 

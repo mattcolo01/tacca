@@ -64,6 +64,18 @@ class BackupServiceTest {
         assertEquals(5, target.db.methodDao().getAll().size)
     }
 
+    @Test fun importRejectsInputLargerThan10Mb() = runTest {
+        target.coffees.add("keep me")
+        val oversized = ByteArray(10 * 1024 * 1024 + 1)
+        try {
+            BackupService(target.db).import(ByteArrayInputStream(oversized))
+            fail("expected BackupException")
+        } catch (e: BackupException) {
+            assertEquals(BackupError.NOT_A_BACKUP, e.error)
+        }
+        assertEquals(listOf("keep me"), target.db.coffeeDao().getAll().map { it.name })
+    }
+
     @Test fun exportUsesFormatAndVersion() = runTest {
         val file = BackupService(source.db, clock = { 0L }).createBackup()
         assertEquals("tacca-backup", file.format)

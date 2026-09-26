@@ -33,6 +33,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -154,14 +155,14 @@ fun DetailScreen(state: DetailUiState, onBack: () -> Unit, onEdit: (Long) -> Uni
 private fun HeaderChip(icon: Int, text: String, background: Color, bordered: Boolean) {
     val c = TaccaTheme.colors
     Row(
-        Modifier.height(34.dp).clip(CircleShape).background(background)
+        Modifier.heightIn(min = 34.dp).clip(CircleShape).background(background)
             .then(if (bordered) Modifier.border(1.dp, c.outline, CircleShape) else Modifier)
             .padding(start = 8.dp, end = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Icon(painterResource(icon), contentDescription = null, tint = c.text, modifier = Modifier.size(20.dp))
-        Text(text, style = TaccaType.label, color = c.text)
+        Text(text, style = TaccaType.label, color = c.text, maxLines = 1, overflow = TextOverflow.Ellipsis)
     }
 }
 
@@ -177,7 +178,13 @@ private fun SameCoffeeRow(cal: Calibration, onClick: () -> Unit) {
         TintedIconBox(cal.method.icon.drawableRes(), c.tint(cal.method.tint), boxSize = 36.dp, iconSize = 20.dp, radius = 12.dp)
         Row(Modifier.weight(1f)) {
             Text("${methodName(cal.method)} · ", style = TaccaType.label, color = c.text)
-            Text(cal.grinder.name, style = TaccaType.label.copy(fontWeight = FontWeight.Medium), color = c.textMuted, maxLines = 1)
+            Text(
+                cal.grinder.name,
+                style = TaccaType.label.copy(fontWeight = FontWeight.Medium),
+                color = c.textMuted,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
         Text(settingText(cal.setting), style = TaccaType.numberS, color = c.text)
     }

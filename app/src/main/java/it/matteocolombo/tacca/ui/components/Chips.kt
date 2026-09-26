@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import it.matteocolombo.tacca.ui.theme.TaccaTheme
 import it.matteocolombo.tacca.ui.theme.TaccaType
@@ -55,7 +56,14 @@ fun FilterPill(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             leadingIcon?.let { Icon(painterResource(it), null, tint = fg, modifier = Modifier.size(16.dp)) }
-            Text(label, style = TaccaType.label, color = fg, maxLines = 1)
+            Text(
+                label,
+                style = TaccaType.label,
+                color = fg,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.weight(1f, fill = false),
+            )
             trailingIcon?.let { Icon(painterResource(it), null, tint = fg, modifier = Modifier.size(14.dp)) }
         }
     }

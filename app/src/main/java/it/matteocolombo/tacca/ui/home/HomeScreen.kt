@@ -1,5 +1,6 @@
 package it.matteocolombo.tacca.ui.home
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -23,11 +24,14 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -96,6 +100,11 @@ fun HomeEntry(onOpen: (Long) -> Unit, onNew: (Long?, Long?) -> Unit, onSettings:
 fun HomeScreen(state: HomeUiState, actions: HomeActions, modifier: Modifier = Modifier) {
     val c = TaccaTheme.colors
     val base = topLevelContentPadding()
+    val searchFocus = remember { FocusRequester() }
+    LaunchedEffect(state.searchOpen) {
+        if (state.searchOpen) runCatching { searchFocus.requestFocus() }
+    }
+    BackHandler(enabled = state.searchOpen) { actions.onCloseSearch() }
     Box(modifier.fillMaxSize().background(c.background)) {
         LazyColumn(
             Modifier.fillMaxSize(),
@@ -113,6 +122,8 @@ fun HomeScreen(state: HomeUiState, actions: HomeActions, modifier: Modifier = Mo
                                 placeholder = stringResource(R.string.home_search_hint),
                                 label = stringResource(R.string.action_search),
                                 modifier = Modifier.weight(1f),
+                                focusRequester = searchFocus,
+                                onClear = { actions.onQueryChange("") },
                             )
                         }
                     } else {

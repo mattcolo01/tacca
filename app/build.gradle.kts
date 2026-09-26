@@ -28,11 +28,15 @@ android {
     signingConfigs {
         if (keystoreProperties.isNotEmpty()) {
             create("release") {
-                storeFile = rootProject.file(keystoreProperties.getProperty("storeFile"))
-                storePassword = keystoreProperties.getProperty("storePassword")
-                keyAlias = keystoreProperties.getProperty("keyAlias")
-                keyPassword = keystoreProperties.getProperty("keyPassword")
+                fun requiredProperty(key: String): String = keystoreProperties.getProperty(key)
+                    ?: throw GradleException("keystore.properties is missing required property '$key'")
+                storeFile = rootProject.file(requiredProperty("storeFile"))
+                storePassword = requiredProperty("storePassword")
+                keyAlias = requiredProperty("keyAlias")
+                keyPassword = requiredProperty("keyPassword")
             }
+        } else {
+            logger.warn("keystore.properties not found: release build will be unsigned")
         }
     }
     buildTypes {

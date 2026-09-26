@@ -111,8 +111,14 @@ fun NavController.navigateToTab(tab: TopLevelDestination) = navigate(tab.route) 
     restoreState = true
 }
 
-/** Opens the Calibrations tab at its root, where the shared home filter has just been set. */
+/**
+ * Opens the Calibrations tab at its root, where the shared home filter has just been set.
+ * The originating tab's own back-stack state is preserved (`saveState = true`) so returning to
+ * it later resumes where the user left off; Home's state is deliberately not restored
+ * (`restoreState = false`) so it always shows at its root with the freshly-set filter applied.
+ */
 fun NavController.showHomeFiltered() = navigate(HomeRoute) {
-    popUpTo(graph.findStartDestination().id) { inclusive = false }
+    popUpTo(graph.findStartDestination().id) { saveState = true }
     launchSingleTop = true
+    restoreState = false
 }

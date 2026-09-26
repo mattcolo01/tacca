@@ -8,10 +8,13 @@ import it.matteocolombo.tacca.data.db.MethodEntity
 import it.matteocolombo.tacca.data.db.TaccaDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.time.Instant
+
+private const val MAX_IMPORT_BYTES = 10L * 1024 * 1024
 
 class BackupService(
     private val db: TaccaDatabase,
@@ -61,11 +64,31 @@ class BackupService(
     suspend fun import(input: InputStream) {
         val text = withContext(Dispatchers.IO) {
             try {
-                input.bufferedReader(Charsets.UTF_8).use { it.readText() }
+                readBounded(input, MAX_IMPORT_BYTES)
             } catch (e: IOException) {
                 throw BackupException(BackupError.IO, e)
             }
         }
-        restore(BackupCodec.decode(text))
+        // Parsing/validating a large JSON tree is CPU work: keep it off the caller's dispatcher
+        // (typically Dispatchers.Main from a ViewModel) so a big backup does not freeze the UI.
+        val file = withContext(Dispatchers.Default) { BackupCodec.decode(text) }
+        restore(file)
+    }
+
+    /** Reads at most [maxBytes] from [input], closing it. Rejects anything larger as not a backup. */
+    private fun readBounded(input: InputStream, maxBytes: Long): String {
+        val buffer = ByteArrayOutputStream()
+        val chunk = ByteArray(8 * 1024)
+        var total = 0L
+        input.use { stream ->
+            while (true) {
+                val n = stream.read(chunk)
+                if (n == -1) break
+                total += n
+                if (total > maxBytes) throw BackupException(BackupError.NOT_A_BACKUP)
+                buffer.write(chunk, 0, n)
+            }
+        }
+        return String(buffer.toByteArray(), Charsets.UTF_8)
     }
 }

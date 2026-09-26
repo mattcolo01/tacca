@@ -32,7 +32,12 @@ data class MethodsUiState(
     val loading: Boolean = true,
     val items: List<MethodItem> = emptyList(),
     val sheet: MethodSheetState? = null,
-    /** Normalized custom names (built-in display names are checked in the sheet). */
+    /**
+     * Normalized custom names only: this view model has no [android.content.res.Resources], so it
+     * cannot localize built-in method names. MethodsEntry merges in the localized built-in display
+     * names (e.g. "V60") before this set reaches the sheet, so the duplicate check there also
+     * catches a new/renamed method colliding with a built-in one.
+     */
     val existingNames: Set<String> = emptySet(),
     val saving: Boolean = false,
 )
