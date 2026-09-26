@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.test.assertHeightIsAtLeast
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.assertIsSelected
@@ -12,6 +13,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import it.matteocolombo.tacca.domain.GrindSetting
 import it.matteocolombo.tacca.ui.navigation.TopLevelDestination
@@ -57,6 +59,13 @@ class ComponentsTest {
         compose.onNodeWithText("Grinders").performClick()
         compose.onNodeWithText("Grinders").assertIsSelected()
         assertEquals(TopLevelDestination.GRINDERS, picked)
+    }
+
+    @Test fun filterPillHasAtLeast48dpTouchTarget() {
+        compose.setContent {
+            TaccaTheme { FilterPill(label = "All", selected = false, onClick = {}) }
+        }
+        compose.onNodeWithText("All").assertHeightIsAtLeast(48.dp)
     }
 
     @Test fun confirmDialogInvokesConfirm() {

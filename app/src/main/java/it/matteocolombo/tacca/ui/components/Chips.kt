@@ -4,8 +4,10 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectable
@@ -36,20 +38,26 @@ fun FilterPill(
     val c = TaccaTheme.colors
     val bg = if (selected) c.text else c.surface
     val fg = if (selected) c.surface else c.text
-    Row(
+    Box(
         modifier = modifier
-            .height(38.dp)
-            .clip(CircleShape)
-            .background(bg)
-            .border(1.dp, if (selected) c.text else c.outline, CircleShape)
-            .selectable(selected = selected, role = Role.Tab, onClick = onClick)
-            .padding(horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
+            .heightIn(min = 48.dp)
+            .selectable(selected = selected, role = Role.Tab, onClick = onClick),
+        contentAlignment = Alignment.Center,
     ) {
-        leadingIcon?.let { Icon(painterResource(it), null, tint = fg, modifier = Modifier.size(16.dp)) }
-        Text(label, style = TaccaType.label, color = fg, maxLines = 1)
-        trailingIcon?.let { Icon(painterResource(it), null, tint = fg, modifier = Modifier.size(14.dp)) }
+        Row(
+            modifier = Modifier
+                .height(38.dp)
+                .clip(CircleShape)
+                .background(bg)
+                .border(1.dp, if (selected) c.text else c.outline, CircleShape)
+                .padding(horizontal = 16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            leadingIcon?.let { Icon(painterResource(it), null, tint = fg, modifier = Modifier.size(16.dp)) }
+            Text(label, style = TaccaType.label, color = fg, maxLines = 1)
+            trailingIcon?.let { Icon(painterResource(it), null, tint = fg, modifier = Modifier.size(14.dp)) }
+        }
     }
 }
 
