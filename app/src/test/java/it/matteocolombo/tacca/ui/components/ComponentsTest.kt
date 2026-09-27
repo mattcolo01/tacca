@@ -1,5 +1,6 @@
 package it.matteocolombo.tacca.ui.components
 
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -66,6 +67,17 @@ class ComponentsTest {
             TaccaTheme { FilterPill(label = "All", selected = false, onClick = {}) }
         }
         compose.onNodeWithText("All").assertHeightIsAtLeast(48.dp)
+    }
+
+    @Test fun filterPillDisplaysTextInLazyRow() {
+        compose.setContent {
+            TaccaTheme {
+                LazyRow {
+                    item { FilterPill(label = "Espresso", selected = false, onClick = {}) }
+                }
+            }
+        }
+        compose.onNodeWithText("Espresso").assertIsDisplayed()
     }
 
     @Test fun confirmDialogInvokesConfirm() {
